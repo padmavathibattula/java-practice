@@ -2,7 +2,7 @@ package com.java.program.example;
 
 import java.util.Scanner;
 
-public class NumberPattern2 {
+public class RightPascalsTriangleNumberPattern {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the number of rows : ");
@@ -15,7 +15,7 @@ public class NumberPattern2 {
 			System.out.println();
 		}
 
-		// Printing Lower Half for n-1 rows
+		// Printing Lower Half for rows-1 rows
 		// Loop to iterate over each row in reverse order
 		for (int i = rows - 1; i >= 1; i--) {
 			// Loop to iterate over each column of the ith row

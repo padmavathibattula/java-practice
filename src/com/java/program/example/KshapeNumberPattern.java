@@ -2,7 +2,7 @@ package com.java.program.example;
 
 import java.util.Scanner;
 
-public class NumberPattern3 {
+public class KshapeNumberPattern {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the number of rows : ");
