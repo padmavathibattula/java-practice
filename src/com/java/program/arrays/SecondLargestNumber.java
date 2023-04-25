@@ -21,15 +21,15 @@ public class SecondLargestNumber {
 		for (int i = 0; i < length; i++) {
 			arr[i] = sc.nextInt();
 		}
-		Arrays.sort(arr);
-		int second_largest = 0;
+		Arrays.sort(arr);// do not use java library 
+		int secondLargest = 0;
 		for (int i = arr.length - 2; i >= 0; i--) {
 			if (arr[i] != arr[arr.length - 1]) {
-				second_largest = arr[i];
+				secondLargest = arr[i];
 				break;
 			}
 		}
-		System.out.println("The second largest element is " + second_largest);
+		System.out.println("The second largest element is " + secondLargest);
 		sc.close();
 	}
 }

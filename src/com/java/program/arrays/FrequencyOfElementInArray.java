@@ -13,7 +13,7 @@ public class FrequencyOfElementInArray {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = sc.nextInt();
 		}
-		Arrays.sort(arr);
+		Arrays.sort(arr); // do not use java library 
 		for (int i = 0; i < arr.length; i++) {
 			int count = 1;
 			while (i < arr.length - 1 && arr[i] == arr[i + 1]) {
