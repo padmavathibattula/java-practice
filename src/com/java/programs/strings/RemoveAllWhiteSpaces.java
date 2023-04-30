@@ -5,7 +5,7 @@ public class RemoveAllWhiteSpaces {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter a string: ");
 		String inputStr = sc.nextLine();
-		inputStr = inputStr.replaceAll(" ", "");
+		inputStr = inputStr.replace(" ", "");
 		System.out.println("The string after removing white spaces is:" + inputStr);
 		sc.close();
 	}
