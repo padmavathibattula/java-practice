@@ -1,7 +1,14 @@
 package com.java.programs.arrays;
 
 import java.util.Scanner;
-
+/*
+ * 5.Write a program to check if an array is sorted in ascending order.
+     Input:
+     Enter the size of the array: 5
+     Enter the array elements: 1 2 3 4 5
+     Output:
+     True
+ */
 public class AscendingOrder {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

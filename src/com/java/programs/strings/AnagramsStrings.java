@@ -15,9 +15,9 @@ public class AnagramsStrings {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter first string :");
+		System.out.print("Enter first string :");//isten
 		String str1 = sc.nextLine();
-		System.out.print("Enter second string :");
+		System.out.print("Enter second string :");//sient
 		String str2 = sc.nextLine();
 		boolean flag = true;
 		int noofChars = 256;
@@ -28,14 +28,9 @@ public class AnagramsStrings {
 		// Create an array to store the count of each character in str1
 		int[] charCount = new int[256];
 
-		// Increment the count for each character in str1
 		for (int i = 0; i < str1.length(); i++) {
-			charCount[str1.charAt(i)]++;
-		}
-
-		// Decrement the count for each character in str2
-		for (int i = 0; i < str2.length(); i++) {
-			charCount[str2.charAt(i)]--;
+			charCount[str1.charAt(i)]++;// Increment the count for each character in str1
+			charCount[str2.charAt(i)]--;// Decrement the count for each character in str2
 		}
 
 		// Check if all the counts are zero

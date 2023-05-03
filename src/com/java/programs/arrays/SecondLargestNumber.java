@@ -1,5 +1,13 @@
 package com.java.programs.arrays;
 import java.util.Arrays;
+/*
+ * 7.Write a program to reverse an array.
+     Input:
+     Enter the size of the array: 5
+     Enter the array elements: 1 2 3 4 5
+     Output:
+     5 4 3 2 1
+*/
 import java.util.Scanner;
 public class SecondLargestNumber {
 	public static void main(String[] args) {

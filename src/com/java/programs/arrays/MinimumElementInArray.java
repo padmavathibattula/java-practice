@@ -1,7 +1,14 @@
 package com.java.programs.arrays;
 
 import java.util.Scanner;
-
+/*
+ * 3.Write a program to find the minimum element in an array.
+     Input:
+     Enter the size of the array: 5
+     Enter the array elements: 10 5 20 25 15
+     Output:
+     The minimum element is 5
+*/
 public class MinimumElementInArray {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

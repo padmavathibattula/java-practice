@@ -1,14 +1,13 @@
 package com.java.programs.strings;
 
 import java.util.Scanner;
-
 /*
- * 19. Write a program that prompts the user to enter a string and then
-       checks if it contains only digits (0-9).
-       Input:
-       Enter a string: 123456
-       Output:
-       The string contains only digits
+ * 1.Write a program to find the sum of all elements in an array.
+     Input:
+     Enter the size of the array: 5
+     Enter the array elements: 1 2 3 4 5
+     Output:
+     The sum of all elements in the array is 15
 */
 public class StringContainsOnlyDigits {
 	public static void main(String[] args) {
