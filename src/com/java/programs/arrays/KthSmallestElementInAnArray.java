@@ -22,29 +22,26 @@ public class KthSmallestElementInAnArray {
 		for (int i = 0; i < length; i++) {
 			arr[i] = sc.nextInt();
 		}
-		 System.out.print("Enter the value of k: ");
-	        int k = sc.nextInt();
-	        // Find the kth smallest element
-	        int kthSmallest = arr[0];
-	        for (int i = 0; i < k; i++) {
-	            int max = arr[0];
-	            int maxIndex = 0;
-	            for (int j = 1; j < arr.length; j++) {
-	                if (arr[j] > max) {
-	                    max = arr[j];
-	                    maxIndex = j;
-	                }
-	            }
-	            kthSmallest = max;
-	            arr[maxIndex] = arr[arr.length - 1];
-	            arr = Arrays.copyOf(arr, arr.length - 1);
-	        }
+		System.out.print("Enter the value of k: ");
+		int k = sc.nextInt();
+		// Find the kth smallest element
+		int kthSmallest = arr[0];
+		for (int i = 0; i < k; i++) {
+			int max = arr[0];
+			int maxIndex = 0;
+			for (int j = 1; j < arr.length; j++) {
+				if (arr[j] > max) {
+					max = arr[j];
+					maxIndex = j;
+				}
+			}
+			kthSmallest = max;
+			arr[maxIndex] = arr[arr.length - 1];
+			arr = Arrays.copyOf(arr, arr.length - 1);
+		}
 
-	        System.out.println("The " + k + "th smallest element is: " + kthSmallest);
-	        sc.close();
-	    }
-		
+		System.out.println("The " + k + "th smallest element is: " + kthSmallest);
+		sc.close();
 	}
 
-
-
+}

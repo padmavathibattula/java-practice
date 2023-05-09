@@ -1,7 +1,5 @@
 package com.java.programs.arrays;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -34,7 +32,9 @@ public class CommonElementsInArray {
 		for (int i = 0; i < size2; i++) {
 			arr2[i] = sc.nextInt();
 		}
-		List<Integer> commonElements = new ArrayList<>();
+		
+		int[] commonElements=new int[size1];
+		int index=0;
 
 		// Traverse the first array
 		for (int i = 0; i < size1; i++) {
@@ -43,7 +43,8 @@ public class CommonElementsInArray {
 				// If the current element in the first array is equal to the current element in
 				// the second array, add it to the list of common elements
 				if (arr1[i] == arr2[j]) {
-					commonElements.add(arr1[i]);
+					commonElements[index]=arr1[i];
+					index++;
 					break;
 				}
 			}
@@ -51,8 +52,8 @@ public class CommonElementsInArray {
 
 		// Print the common elements
 		System.out.print("Common elements: ");
-		for (int element : commonElements) {
-			System.out.print(element + " ");
+		for (int i=0;i<index;i++) {
+			System.out.print(commonElements[i] + " ");
 		}
 		sc.close();
 
