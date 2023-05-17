@@ -13,17 +13,7 @@ import java.util.Scanner;
  */
 
 public class RemoveAspecificElementInArray {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the length of the array:");
-		int length = sc.nextInt();
-		System.out.print("Enter the number of elements in the array: ");
-		int[] arr = new int[length];
-		for (int i = 0; i < length; i++) {
-			arr[i] = sc.nextInt();
-		}
-		System.out.print("Enter the element to be removed:");
-		int element = sc.nextInt();
+	public int[] getRemoveElement(int[] arr, int element) {
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] == element) // If element found
 			{
@@ -34,9 +24,26 @@ public class RemoveAspecificElementInArray {
 				break;
 			}
 		}
+		
+		return arr;
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the length of the array:");
+		int length = sc.nextInt();
+		System.out.print("Enter the number of elements in the array: ");
+		int[] arr = new int[length];
+		for (int i = 0; i < length; i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		System.out.println("Enter the element to be removed: ");
+		int element = sc.nextInt();
+		RemoveAspecificElementInArray obj = new RemoveAspecificElementInArray();
+		int[] outputArr = obj.getRemoveElement(arr, element);
 		System.out.println("Array after removing");
-		for (int i = 0; i < arr.length - 1; i++) {
-			System.out.print(arr[i] + " ");
+		for (int i = 0; i < outputArr.length - 1; i++) {
+			System.out.print(outputArr[i] + " ");
 		}
 		sc.close();
 

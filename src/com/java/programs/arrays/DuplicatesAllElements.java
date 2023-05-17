@@ -11,18 +11,7 @@ import java.util.Scanner;
        1 2 3 4 5
  */
 public class DuplicatesAllElements {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the size of the array: ");
-		int length = sc.nextInt();
-		System.out.print("Enter the number of elements in the  array :");
-		int[] arr = new int[length];
-		for (int i = 0; i < arr.length; i++) {
-			arr[i] = sc.nextInt();
-		}
-
-		int size = arr.length;
-		// use nested for loop to find the duplicate elements in array
+	private int getRemoveDuplicatesArray(int[] arr, int size) {
 		for (int i = 0; i < size; i++) {
 			for (int j = i + 1; j < size; j++) {
 				// use if statement to check duplicate element
@@ -39,6 +28,23 @@ public class DuplicatesAllElements {
 				}
 			}
 		}
+		return size;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the size of the array: ");
+		int length = sc.nextInt();
+		System.out.print("Enter the number of elements in the  array :");
+		int[] arr = new int[length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		int size = arr.length;
+		// use nested for loop to find the duplicate elements in array
+		DuplicatesAllElements obj = new DuplicatesAllElements();
+		size = obj.getRemoveDuplicatesArray(arr, size);
 		sc.close();
 		/* display an array after deletion or removing of the duplicate elements */
 		System.out.println("Array elements after deletion of the duplicate elements: ");
@@ -46,7 +52,7 @@ public class DuplicatesAllElements {
 		for (int i = 0; i < size; i++) {
 			System.out.print(arr[i] + " ");
 		}
-		
+
 	}
 
 }

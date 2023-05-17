@@ -1,6 +1,17 @@
 package com.java.programs.arrays;
+
 import java.util.Scanner;
+
 public class SumOfAllElementsInArray {
+	public  int getSumOfElement(int[] arr, int sum) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] % 3 == 0 || arr[i] % 5 == 0) {
+				sum = sum + arr[i];
+			}
+		}
+		return sum;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the number of elements in array : ");
@@ -11,11 +22,8 @@ public class SumOfAllElementsInArray {
 			arr[i] = sc.nextInt();
 		}
 		int sum = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] % 3 == 0 || arr[i] % 5 == 0) {
-				sum = sum + arr[i];
-			}
-		}
+		SumOfAllElementsInArray obj = new SumOfAllElementsInArray();
+		sum = obj.getSumOfElement(arr, sum);
 		System.out.println(sum);
 		sc.close();
 	}

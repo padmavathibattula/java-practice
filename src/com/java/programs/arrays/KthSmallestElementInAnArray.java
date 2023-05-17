@@ -13,18 +13,7 @@ import java.util.Scanner;
        The 3rd smallest element is 15
  */
 public class KthSmallestElementInAnArray {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the length of the array : ");
-		int length = sc.nextInt();
-		System.out.print("Enter the number of elements : ");
-		int[] arr = new int[length];
-		for (int i = 0; i < length; i++) {
-			arr[i] = sc.nextInt();
-		}
-		System.out.print("Enter the value of k: ");
-		int k = sc.nextInt();
-		// Find the kth smallest element
+	public int getKthSmallestElement(int[] arr, int k) {
 		int kthSmallest = arr[0];
 		for (int i = 0; i < k; i++) {
 			int max = arr[0];
@@ -39,9 +28,25 @@ public class KthSmallestElementInAnArray {
 			arr[maxIndex] = arr[arr.length - 1];
 			arr = Arrays.copyOf(arr, arr.length - 1);
 		}
+		return kthSmallest;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the length of the array : ");
+		int length = sc.nextInt();
+		System.out.print("Enter the number of elements : ");
+		int[] arr = new int[length];
+		for (int i = 0; i < length; i++) {
+			arr[i] = sc.nextInt();
+		}
+		System.out.print("Enter the value of k: ");
+		int k = sc.nextInt();
+		// Find the kth smallest element
+		KthSmallestElementInAnArray obj = new KthSmallestElementInAnArray();
+		int kthSmallest = obj.getKthSmallestElement(arr, k);
 
 		System.out.println("The " + k + "th smallest element is: " + kthSmallest);
 		sc.close();
 	}
-
 }

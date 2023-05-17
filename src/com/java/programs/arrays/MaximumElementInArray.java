@@ -3,6 +3,14 @@ package com.java.programs.arrays;
 import java.util.Scanner;
 
 public class MaximumElementInArray {
+	public int getMaximumElementInArray(int[] arr, int max) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] > max) // we are compare elements of array with max
+				max = arr[i];
+		}
+		return max;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// 1
@@ -16,11 +24,9 @@ public class MaximumElementInArray {
 		}
 		// 3
 		int max = arr[0];
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] > max) // we are compare elements of array with max
-				max = arr[i];
-		}
-		//4
+		MaximumElementInArray obj = new MaximumElementInArray();
+		max = obj.getMaximumElementInArray(arr, max);
+		// 4
 		System.out.println("The maximum element is : " + max); // we are printing maximum element
 		sc.close();
 	}

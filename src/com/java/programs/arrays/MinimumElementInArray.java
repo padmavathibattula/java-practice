@@ -1,6 +1,7 @@
 package com.java.programs.arrays;
 
 import java.util.Scanner;
+
 /*
  * 3.Write a program to find the minimum element in an array.
      Input:
@@ -10,6 +11,15 @@ import java.util.Scanner;
      The minimum element is 5
 */
 public class MinimumElementInArray {
+	public int getMinimumElementsInArray(int[] arr, int min) {
+		for (int i = 0; i < arr.length; i++) {
+			// Compare elements of array with min
+			if (arr[i] < min)
+				min = arr[i];
+		}
+		return min;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// 1
@@ -23,12 +33,9 @@ public class MinimumElementInArray {
 		}
 
 		int min = arr[0];
+		MinimumElementInArray obj = new MinimumElementInArray();
 		// Loop through the array
-		for (int i = 0; i < arr.length; i++) {
-			// Compare elements of array with min
-			if (arr[i] < min)
-				min = arr[i];
-		}
+		min = obj.getMinimumElementsInArray(arr, min);
 		// 4
 		System.out.println("The minimum element is " + min);// we are printing min element
 		sc.close();

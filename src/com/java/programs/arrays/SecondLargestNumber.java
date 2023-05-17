@@ -10,6 +10,16 @@ import java.util.Arrays;
 */
 import java.util.Scanner;
 public class SecondLargestNumber {
+	public int getSecondLargestNumber(int[] arr) {
+		int secondLargest = 0;
+		for (int i = arr.length - 2; i >= 0; i--) {
+			if (arr[i] != arr[arr.length - 1]) {
+				secondLargest = arr[i];
+				break;
+			}
+		}
+		return secondLargest;
+	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int length;
@@ -28,14 +38,11 @@ public class SecondLargestNumber {
 			arr[i] = sc.nextInt();
 		}
 		Arrays.sort(arr);// do not use java library 
-		int secondLargest = 0;
-		for (int i = arr.length - 2; i >= 0; i--) {
-			if (arr[i] != arr[arr.length - 1]) {
-				secondLargest = arr[i];
-				break;
-			}
-		}
+		SecondLargestNumber obj = new SecondLargestNumber();
+		int secondLargest =obj.getSecondLargestNumber(arr);
 		System.out.println("The second largest element is " + secondLargest);
 		sc.close();
 	}
+
+	
 }

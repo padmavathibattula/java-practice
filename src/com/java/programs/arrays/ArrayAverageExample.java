@@ -2,7 +2,15 @@ package com.java.programs.arrays;
 
 import java.util.Scanner;
 
-public class AverageOfAllElements {
+public class ArrayAverageExample {
+	public double getAverage(int[] arr) {
+		int sum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			sum = sum + arr[i];
+		}
+		return sum / arr.length;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the length of the array : ");
@@ -12,11 +20,8 @@ public class AverageOfAllElements {
 		for (int i = 0; i < length; i++) {
 			arr[i] = sc.nextInt();
 		}
-		int sum = 0;
-		for (int i = 0; i < arr.length; i++) {
-			sum = sum + arr[i];
-		}
-		double average = sum / length;
+		ArrayAverageExample obj = new ArrayAverageExample();
+		double average = obj.getAverage(arr);
 		System.out.println("The average of all elements in array is " + average);
 		sc.close();
 	}

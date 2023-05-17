@@ -11,25 +11,8 @@ import java.util.Scanner;
        Array in descending order: 25 20 15 10 5
  */
 public class DecendingOrder {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the size of the array: ");
-		int length = sc.nextInt();
-		System.out.print("Enter the number of elements in the  array :");
-		int[] arr = new int[length];
-		for (int i = 0; i < arr.length; i++) {
-			arr[i] = sc.nextInt();
-		}
-
+	public int [] getDecendingOrder(int[] arr) {
 		int temp = 0;
-
-		// Displaying elements of original array
-		System.out.println("Elements of original array: ");
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");
-		}
-
-		// Sort the array in descending order
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = i + 1; j < arr.length; j++) {
 				if (arr[i] < arr[j]) {
@@ -40,12 +23,35 @@ public class DecendingOrder {
 			}
 		}
 
+		return arr;
+		
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the size of the array: ");
+		int length = sc.nextInt();
+		System.out.print("Enter the number of elements in the  array :");
+		int[] arr = new int[length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		// Displaying elements of original array
+		System.out.println("Elements of original array: ");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+
+		// Sort the array in descending order
+		
+		DecendingOrder obj = new DecendingOrder();
+		int[] arr1 = obj.getDecendingOrder(arr);
 		System.out.println();
 
 		// Displaying elements of array after sorting
 		System.out.println("Elements of array sorted in descending order: ");
 		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");
+			System.out.print(arr1[i] + " ");
 		}
 		sc.close();
 	}

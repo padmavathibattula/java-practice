@@ -1,6 +1,13 @@
 package com.java.programs.arrays;
 import java.util.Scanner;
 public class SumArrayElements {
+	public  int getSumArrayElements(int[] arr, int sum) {
+		for (int i = 0; i < arr.length; i++) {
+			sum = sum + arr[i];//we are adding elements in the array
+		}
+		//4
+		return sum;
+	}
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		//1
@@ -14,12 +21,12 @@ public class SumArrayElements {
 		}
 		//3
 		int sum = 0;
-		for (int i = 0; i < arr.length; i++) {
-			sum = sum + arr[i];//we are adding elements in the array
-		}
-		//4
+		SumArrayElements obj = new SumArrayElements();
+		sum = obj.getSumArrayElements(arr, sum);
 		System.out.println("The sum of all elements in the arry is :" + sum);//we are printing sum
 		scanner.close();
 	}
+
+	
 
 }
