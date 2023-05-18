@@ -11,16 +11,15 @@ The string in lowercase is: hello world
 
  */
 public class ConvertStringToLowercase {
-	public  String getConvertStringToLowercase(String inputStr) {
-		String lowerCase = inputStr.toLowerCase();
-		return lowerCase;
+	public  String convertStringToLowercase(String inputStr) {
+		return inputStr.toLowerCase();
 	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter a string: ");// HELLO WORLD
 		String inputStr = sc.nextLine();
 		ConvertStringToLowercase obj = new ConvertStringToLowercase();
-		String lowerCase =obj. getConvertStringToLowercase(inputStr);// hello world
+		String lowerCase =obj.convertStringToLowercase(inputStr);// hello world
 		System.out.println("The String in lowercase is: " + lowerCase); // hello world
 		sc.close();
 	}

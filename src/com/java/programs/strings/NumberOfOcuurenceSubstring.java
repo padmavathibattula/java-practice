@@ -19,13 +19,18 @@ public class NumberOfOcuurenceSubstring {
 		System.out.print("Enter a string :");// llo
 		String substr = sc.nextLine();
 		int occurence = 0;
+		occurence = getNumberOfOcuurenceSubstring(str, substr, occurence);
+		System.out.println("Number of occurences:" + occurence);//1
+		sc.close();
+	}
+
+	public static int getNumberOfOcuurenceSubstring(String str, String substr, int occurence) {
 		int fromIndex = 0;
 		while (str.indexOf(substr, fromIndex) != -1) {//0->llo->true,5->4->false
 			occurence++;//1
 			fromIndex = str.indexOf(substr, fromIndex) + substr.length();//2+3->5,
 		}
-		System.out.println("Number of occurences:" + occurence);//1
-		sc.close();
+		return occurence;
 	}
 
 }

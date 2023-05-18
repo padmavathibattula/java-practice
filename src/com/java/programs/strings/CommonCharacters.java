@@ -9,18 +9,21 @@ import java.util.Scanner;
        Enter first string: hello
        Enter second string: world
        Output:
-       Common characters: l
+       Common characters: lo
  */
 public class CommonCharacters {
-	public  int getCommonCharacters(String str1, String str2) {
-		int count = 0;
-		for(int i = 0; i < str1.length() && i < str2.length(); i++) {
-		    if(str1.charAt(i) == str2.charAt(i)){
-		        count++;
-		    }
+	public String getCommonCharacters(String str1, String str2) {
+		String commonCharacters = "";
+		for (int i = 0; i < str1.length(); i++) {
+			for (int j = 0; j < str2.length(); j++) {
+				if (str1.charAt(i) == str2.charAt(j) && !commonCharacters.contains(str1.charAt(i) + "")) {
+					commonCharacters = commonCharacters + str1.charAt(i);
+				}
+			}
 		}
-		return count;
+		return commonCharacters;
 	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter first string:");
@@ -28,10 +31,9 @@ public class CommonCharacters {
 		System.out.print("Enter second string:");
 		String str2 = sc.nextLine();
 		CommonCharacters obj = new CommonCharacters();
-		int count = obj.getCommonCharacters(str1, str2);
-		System.out.print("The common character: " + count);
+		String commonCharacters = obj.getCommonCharacters(str1, str2);
+		System.out.print("The common characters: " + commonCharacters);
 		sc.close();
 	}
 
-	
 }
