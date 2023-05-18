@@ -10,6 +10,15 @@ import java.util.Scanner;
   The frequency of 'l' in the string is: 3
 */
 public class FrequencyCharater {
+	public  int getFrequencyCharacter(String str, char ch, int frequency) {
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) == ch) {
+				frequency++;
+			}
+		}
+		return frequency;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter a string:");// hello world
@@ -17,11 +26,8 @@ public class FrequencyCharater {
 		System.out.print("Enter a character:");//l
 		char ch = sc.next().charAt(0);
 		int frequency = 0;
-		for (int i = 0; i < str.length(); i++) {
-			if (str.charAt(i) == ch) {
-				frequency++;
-			}
-		}
+		FrequencyCharater obj = new FrequencyCharater();
+		frequency = obj.getFrequencyCharacter(str, ch, frequency);
 		System.out.println("The frequency of " + ch + " in the String is " + frequency);
 		sc.close();
 	}

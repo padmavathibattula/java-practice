@@ -11,11 +11,17 @@ import java.util.Scanner;
        First three letters: Ele
 */
 public class FirstThreeLettersOfSubstring {
+	public  String getFirstThreeLettersOfSubstring(String str) {
+		String ouputstr = str.substring(0,3);
+		return ouputstr;
+	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter a word: ");
 		String str = sc.nextLine();
-		System.out.println("First tree letters: " + str.substring(0, 3));
+		FirstThreeLettersOfSubstring obj = new FirstThreeLettersOfSubstring();
+		String ouputstr =obj. getFirstThreeLettersOfSubstring(str);
+		System.out.println("First tree letters: " +ouputstr);
 		sc.close();
 	}
 }

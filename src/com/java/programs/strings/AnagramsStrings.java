@@ -12,6 +12,21 @@ import java.util.Scanner;
        Strings are anagrams
 */
 public class AnagramsStrings {
+	private  boolean getAnagramString(String str1, String str2, boolean flag, int noofChars, int[] charCount) {
+		for (int i = 0; i < str1.length(); i++) {
+			charCount[str1.charAt(i)]++;// Increment the count for each character in str1
+			charCount[str2.charAt(i)]--;// Decrement the count for each character in str2
+		}
+
+		// Check if all the counts are zero
+		for (int i = 0; i < noofChars; i++) {
+			if (charCount[i] != 0) {
+				flag = false;
+
+			}
+		}
+		return flag;
+	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -27,19 +42,9 @@ public class AnagramsStrings {
 
 		// Create an array to store the count of each character in str1
 		int[] charCount = new int[256];
+		AnagramsStrings obj = new AnagramsStrings();
 
-		for (int i = 0; i < str1.length(); i++) {
-			charCount[str1.charAt(i)]++;// Increment the count for each character in str1
-			charCount[str2.charAt(i)]--;// Decrement the count for each character in str2
-		}
-
-		// Check if all the counts are zero
-		for (int i = 0; i < noofChars; i++) {
-			if (charCount[i] != 0) {
-				flag = false;
-
-			}
-		}
+		flag =obj. getAnagramString(str1, str2, flag, noofChars, charCount);
 		System.out.print("The strings are not anagrams");
 		if (flag) {
 
@@ -48,4 +53,5 @@ public class AnagramsStrings {
 		}
 		sc.close();
 	}
+	
 }

@@ -20,15 +20,19 @@ import java.util.Scanner;
        dog
  */
 public class IndividualWordsUsingSplitMethod {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter a sentence: ");
-		String str = sc.nextLine();
+	public  String getIndividualWordsUsingSplitMethod(String str) {
 		String[] words = str.split(" ");
 		for (int i = 0; i < words.length; i++) {
 			System.out.println(words[i]);
 		}
+		return str;
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a sentence: ");
+		String str = sc.nextLine();
+		IndividualWordsUsingSplitMethod obj = new IndividualWordsUsingSplitMethod();
+		obj.getIndividualWordsUsingSplitMethod(str);
 		sc.close();
 	}
-
 }

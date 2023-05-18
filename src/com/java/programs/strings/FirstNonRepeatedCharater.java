@@ -11,11 +11,8 @@ import java.util.Scanner;
 */
 
 public class FirstNonRepeatedCharater {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter a string :");
-		String str = sc.next();
-		boolean unique = true;
+	public  String getFirstNonRepeatedCharacter(String str) {
+		boolean unique;
 		for (int i = 0; i < str.length(); i++) {
 			unique = true;
 			for (int j = 0; j < str.length(); j++) {
@@ -28,6 +25,14 @@ public class FirstNonRepeatedCharater {
 				break;
 			}
 		}
+		return str;
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a string :");
+		String str = sc.next();
+		FirstNonRepeatedCharater obj = new FirstNonRepeatedCharater();
+		obj.getFirstNonRepeatedCharacter(str);
 		sc.close();
 	}
 }

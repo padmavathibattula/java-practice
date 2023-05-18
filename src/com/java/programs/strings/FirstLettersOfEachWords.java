@@ -11,12 +11,7 @@ import java.util.Scanner;
        Java Programming Is Fun
 */
 public class FirstLettersOfEachWords {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter a string : ");
-		String str = sc.nextLine();
-		String[] words = str.split(" ");
-		String output = " ";
+	public  String getFirstLettersOfEachWords(String[] words, String output) {
 		for (int i = 0; i < words.length; i++) {
 			String word = words[i];
 			String firstletter = word.substring(0, 1).toUpperCase();
@@ -24,8 +19,18 @@ public class FirstLettersOfEachWords {
 			word = firstletter + remaingLetters;
 			output = output + word + " ";
 		}
+		return output;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a string : ");
+		String str = sc.nextLine();
+		String[] words = str.split(" ");
+		String output = " ";
+		FirstLettersOfEachWords obj = new FirstLettersOfEachWords();
+		output = obj.getFirstLettersOfEachWords(words, output);
 		System.out.println(output);
 		sc.close();
 	}
-
 }
