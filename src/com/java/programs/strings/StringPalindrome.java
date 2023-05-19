@@ -9,12 +9,7 @@ import java.util.Scanner;
      The string is a palindrome.
 */
 public class StringPalindrome {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter a String :");// madam
-		String inputStr = sc.nextLine();
-		sc.close();
-		String rev = "";
+	public String getStringPalindrome(String inputStr, String rev) {
 		for (int i = inputStr.length() - 1; i >= 0; i--) {
 			rev = rev + inputStr.charAt(i);//m,a,d,a,m
 		}
@@ -23,5 +18,17 @@ public class StringPalindrome {
 		} else {
 			System.out.println("The String is not a palindrome");
 		}
+		return rev;
 	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a String :");// madam
+		String inputStr = sc.nextLine();
+		sc.close();
+		String rev = "";
+		StringPalindrome obj = new StringPalindrome();
+		obj.getStringPalindrome(inputStr, rev);
+	}
+
+	
 }

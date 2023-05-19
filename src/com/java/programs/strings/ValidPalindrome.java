@@ -10,13 +10,7 @@ import java.util.Scanner;
      The string is a valid palindrome
 */
 public class ValidPalindrome {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter a String: ");// A man a plan a canal panama
-		String inputStr = sc.nextLine();
-		String rev = "";
-		inputStr = inputStr.replace(" ", "");
-		sc.close();
+	public String getValidPalindrome(String inputStr, String rev) {
 		for (int i = inputStr.length() - 1; i >= 0; i--) {
 			rev = rev + inputStr.charAt(i);
 		}
@@ -25,6 +19,19 @@ public class ValidPalindrome {
 		} else {
 			System.out.println("The string is not a valid palindrome ");
 		}
+		return rev;
 	}
 
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a String: ");// A man a plan a canal panama
+		String inputStr = sc.nextLine();
+		String rev = "";
+		inputStr = inputStr.replace(" ", "");
+		sc.close();
+		ValidPalindrome obj = new ValidPalindrome();
+		obj.getValidPalindrome(inputStr, rev);
+	}
+
+	
 }

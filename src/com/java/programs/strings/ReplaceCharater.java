@@ -12,6 +12,9 @@ import java.util.Scanner;
      The new string is: hella warld
 */
 public class ReplaceCharater {
+	public  String getReplace(String str, char oldCh, char newCh) {
+		return str.replace(oldCh, newCh);
+	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter a string: ");
@@ -20,7 +23,8 @@ public class ReplaceCharater {
 		char oldCh = sc.next().charAt(0);
 		System.out.print("Enter the new character: ");
 		char newCh = sc.next().charAt(0);
-		String newChar = str.replace(oldCh, newCh);
+		ReplaceCharater obj = new ReplaceCharater();
+		String newChar = obj.getReplace(str, oldCh, newCh);
 		System.out.println("The new string is: " + newChar);
 		sc.close();
 	}

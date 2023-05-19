@@ -10,19 +10,23 @@ import java.util.Scanner;
 
  */
 public class VowelsInString {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter a string:");
-		String inputStr = sc.nextLine().toLowerCase();
-		//inputStr = inputStr.replace("aeiou", " ");
-		int count=0;
+	public String removeVowels(String inputStr) {
+		inputStr=inputStr.toLowerCase();
 		for (int i = 0; i < inputStr.length(); i++) {
 			if (inputStr.charAt(i) == 'a' || inputStr.charAt(i) == 'e' || inputStr.charAt(i) == 'i'
 					|| inputStr.charAt(i) == 'o' || inputStr.charAt(i) == 'u') {
-				count++;
+				inputStr=inputStr.replace(inputStr.charAt(i)+"", "");
 			}
 		}
-		System.out.println("The number of vowels in the string is:" + count);
+		return inputStr;
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a string:");
+		String inputStr = sc.nextLine();
+		VowelsInString obj=new VowelsInString();
+		String outputStr = obj.removeVowels(inputStr);
+		System.out.println("The string without vowels is:" +outputStr);
 		sc.close();
 	}
 }

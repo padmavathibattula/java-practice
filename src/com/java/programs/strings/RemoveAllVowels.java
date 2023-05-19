@@ -11,11 +11,8 @@ import java.util.Scanner;
  */
 
 public class RemoveAllVowels {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter a string: ");// Hello World
-		String str = sc.nextLine();
-		String outputStr = "";
+	public  String getRemoveAllVowels(String str) {
+		String outputStr;
 		outputStr = str;
 		outputStr = outputStr.replace("a", "");// false
 		outputStr = outputStr.replace("e", "");// true->e->means remove the this vowel
@@ -27,6 +24,15 @@ public class RemoveAllVowels {
 		outputStr = outputStr.replace("I", "");// false
 		outputStr = outputStr.replace("O", "");// false
 		outputStr = outputStr.replace("U", "");// false
+		return outputStr;
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a string: ");// Hello World
+		String str = sc.nextLine();
+		String outputStr = "";
+		RemoveAllVowels obj = new RemoveAllVowels();
+		outputStr = obj.getRemoveAllVowels(str);
 		System.out.println("The string without vowels is: " + outputStr);//ouputStr:Hll Wrld
 		sc.close();
 

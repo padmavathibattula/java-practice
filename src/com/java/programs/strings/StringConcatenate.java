@@ -11,6 +11,9 @@ import java.util.Scanner;
 */
 
 public class StringConcatenate {
+	public static String getStringConcatenate(String str1, String str2) {
+		return str1.concat(str2);
+	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the first string:");//hello 
@@ -18,7 +21,7 @@ public class StringConcatenate {
 		System.out.print("Enter the second string:");// world
 		String str2 = sc.nextLine();
 		sc.close();
-		String str3 = str1.concat(str2);
+		String str3 = getStringConcatenate(str1, str2);
 		System.out.println("The concatenated string is: " + str3);//helloworld
 	}
 
