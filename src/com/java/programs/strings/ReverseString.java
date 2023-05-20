@@ -19,7 +19,7 @@ public class ReverseString {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a string:");// hello world
-		String inputStr = sc.next();
+		String inputStr = sc.nextLine();
 		sc.close();
 		String outputStr = "";
 		ReverseString obj = new ReverseString();

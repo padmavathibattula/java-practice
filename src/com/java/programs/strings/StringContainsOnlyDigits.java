@@ -1,6 +1,7 @@
 package com.java.programs.strings;
 
 import java.util.Scanner;
+
 /*
  * 19. Write a program that prompts the user to enter a string and then
        checks if it contains only digits (0-9).
@@ -10,25 +11,25 @@ import java.util.Scanner;
        The string contains only digits
 */
 public class StringContainsOnlyDigits {
-	public boolean  hasContainsOnlyDigits(String str, boolean flag) {
+	public boolean hasDigits(String str) {
+	 boolean hasDigits = true;
+		
 		for (int i = 0; i < str.length(); i++) {
 			if (str.charAt(i) < '0' || str.charAt(i) > '9') {
-				flag = false;
+				hasDigits = false;
 			}
 		}
-		if (flag) {
-			System.out.println("The string contains only digits ");
-		}
-		return flag;
+
+		return hasDigits;
 	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter a String: ");
 		String str = sc.nextLine();
-		boolean flag = true;
 		StringContainsOnlyDigits obj = new StringContainsOnlyDigits();
-		obj.hasContainsOnlyDigits(str, flag);
-
+		boolean output = obj.hasDigits(str);
+		System.out.println("The string contains only digits?:" + output);
 		sc.close();
 	}
 }

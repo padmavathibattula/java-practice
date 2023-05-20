@@ -11,7 +11,8 @@ import java.util.Scanner;
 */
 
 public class ReverseEachWordInaString {
-	public  String getReverseEachWord(String[] words, String rev) {
+	public  String reverseEachWord(String[] words) {
+		String rev = "";
 		for (int i = 0; i < words.length; i++) {//
 			String word = words[i];
 			String reverseword = "";
@@ -27,9 +28,8 @@ public class ReverseEachWordInaString {
 		System.out.print("Enter a sentence :");// the quick brown fox
 		String str = sc.nextLine();
 		String[] words = str.split(" ");
-		String rev = "";
 		ReverseEachWordInaString obj = new ReverseEachWordInaString();
-		rev = obj.getReverseEachWord(words, rev);
+		String rev = obj.reverseEachWord(words);
 		System.out.println("The reversed sentence is: " + rev);
 		sc.close();
 	}

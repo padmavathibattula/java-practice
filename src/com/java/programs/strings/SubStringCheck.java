@@ -12,14 +12,14 @@ import java.util.Scanner;
        The string contains the substring
 */
 public class SubStringCheck {
-	public String getSubString(String str, String subString) {
-		if (str.contains(subString)) {//hello world.contains(world)
-			System.out.println("The string contains the substring");// world
-		} else {
-			System.out.println("The string does not contain substring");
+	public boolean hasSubString(String str, String subString) {
+		boolean hasSubString = false;
+		if (str.contains(subString)) {// hello world.contains(world)
+			hasSubString = true;
 		}
-		return subString;
+		return hasSubString;
 	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter a string :");// Hello World
@@ -27,7 +27,8 @@ public class SubStringCheck {
 		System.out.print("Enter the substring to search: ");// world
 		String subString = sc.nextLine();
 		SubStringCheck obj = new SubStringCheck();
-		obj.getSubString(str, subString);
+		boolean output = obj.hasSubString(str, subString);
+		System.out.println("The string contains the substring?: " + output);
 		sc.close();
 	}
 

@@ -11,28 +11,22 @@ import java.util.Scanner;
  */
 
 public class RemoveAllVowels {
-	public  String getRemoveAllVowels(String str) {
-		String outputStr;
-		outputStr = str;
-		outputStr = outputStr.replace("a", "");// false
-		outputStr = outputStr.replace("e", "");// true->e->means remove the this vowel
-		outputStr = outputStr.replace("i", "");// false
-		outputStr = outputStr.replace("o", "");// true->o->means remove the this vowel
-		outputStr = outputStr.replace("u", "");// false
-		outputStr = outputStr.replace("A", "");// false
-		outputStr = outputStr.replace("E", "");// false
-		outputStr = outputStr.replace("I", "");// false
-		outputStr = outputStr.replace("O", "");// false
-		outputStr = outputStr.replace("U", "");// false
-		return outputStr;
+	public  String removeVowels(String inputStr) {
+		for (int i = 0; i < inputStr.length(); i++) {
+			if (inputStr.charAt(i) == 'a' || inputStr.charAt(i) == 'e' || inputStr.charAt(i) == 'i'
+					|| inputStr.charAt(i) == 'o' || inputStr.charAt(i) == 'u'||inputStr.charAt(i) == 'A' || inputStr.charAt(i) == 'E' || inputStr.charAt(i) == 'I'
+							|| inputStr.charAt(i) == 'O' || inputStr.charAt(i) == 'U') {
+				inputStr=inputStr.replace(inputStr.charAt(i)+"", "");
+			}
+		}
+		return inputStr;
 	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter a string: ");// Hello World
-		String str = sc.nextLine();
-		String outputStr = "";
+		String inputStr = sc.nextLine();
 		RemoveAllVowels obj = new RemoveAllVowels();
-		outputStr = obj.getRemoveAllVowels(str);
+		String outputStr = obj.removeVowels(inputStr);
 		System.out.println("The string without vowels is: " + outputStr);//ouputStr:Hll Wrld
 		sc.close();
 
