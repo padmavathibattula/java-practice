@@ -29,9 +29,12 @@ public class Circle {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a radius of the circle:");
 		double radius = sc.nextDouble();
-		Circle obj = new Circle(radius);
+		// object creation and initialize the state/variables
+		Circle obj = new Circle(radius);// while object creation pass radius
+		// calculate area
 		double area = obj.calArea();
 		System.out.println("The circle of the area is: " + area);
+		// calculate circumference
 		double circumference = obj.calCircumference(radius);
 		System.out.println("The area of the circumference is:" + circumference);
 		double diameter = obj.calDiameter();

@@ -5,9 +5,9 @@ package com.example.constructors;
  */
 import java.util.Scanner;
 public class Parallelogram {
-	double height,length,width;
-	public Parallelogram(double length,double width,double height) {
-		this.height=height;
+	double height,length,width=0;// instance variables
+	public Parallelogram(double length,double width,double height) {// parameterized constructors
+		this.height=height;// assign value to the instance variables height,length,width
 		this.width=width;
 		this.length=length;
 	}
@@ -18,12 +18,14 @@ public class Parallelogram {
 		return this.length*this.height;
 	}
 	public static void main(String[] args) {
+		// user input
 		Scanner sc =new Scanner(System.in);
 		System.out.println("Enter the length of the Area:");
 		double length=sc.nextDouble();
 		System.out.println("Enter the width of the area:");
 		double width=sc.nextDouble();
 		System.out.println("Enter the height of the area:");
+		// object creation
 		double height=sc.nextDouble();
 		Parallelogram obj =new Parallelogram(length,width,height);
 		double perimeter=obj.claPerimeter();
