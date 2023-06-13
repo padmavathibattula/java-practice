@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 
 public class AddElementAtEndInLinkedList {
-	public LinkedList addElement(LinkedList list, int addElement) {
+	public LinkedList<Integer> addElement(LinkedList<Integer> list, int addElement) {
 		list.addLast(addElement);
 		return list;
 	}
@@ -22,7 +22,7 @@ public class AddElementAtEndInLinkedList {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the number of elements:");
 		int size=sc.nextInt();
-		LinkedList list=new LinkedList();
+		LinkedList<Integer> list=new LinkedList();
 		System.out.println("Enter a element:");
 		for(int i=0;i<size;i++) {
 			list.add(sc.nextInt());

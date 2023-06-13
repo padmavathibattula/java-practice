@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 
 public class RemoveAllDuplicateElements {
-	public ArrayList removeAllDuplicatesFromArrayList(ArrayList obj) {
+	public ArrayList<Integer> removeAllDuplicatesFromArrayList(ArrayList<Integer> obj) {
 		int count = obj.size();
 
 		for (int i = 0; i < count; i++) {
@@ -30,14 +30,14 @@ public class RemoveAllDuplicateElements {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the number of elements:");
 		int size = sc.nextInt();
-		ArrayList obj = new ArrayList();
+		ArrayList<Integer> obj = new ArrayList<>();
 		sc.nextLine();
 		System.out.print("Enter the array elements:");
 		for (int i = 0; i < size; i++) {
 			obj.add(sc.nextInt());
 		}
 		RemoveAllDuplicateElements rade = new RemoveAllDuplicateElements();
-		ArrayList outputList = rade.removeAllDuplicatesFromArrayList(obj);
+		ArrayList<Integer> outputList = rade.removeAllDuplicatesFromArrayList(obj);
 		System.out.println("ArrayList after removing duplicates:" + outputList);
 
 	}

@@ -9,9 +9,9 @@ import java.util.Scanner;
  */
 
 public class AddArrayList {
-	public ArrayList AddIntegersFromArrayList(ArrayList obj) {
+	public ArrayList<Integer> AddIntegersFromArrayList(ArrayList<Integer> obj) {
 		for (int i = 0; i < obj.size(); i++) {
-			int input = (Integer) obj.get(i);
+			int input = obj.get(i);
 		}
 		return obj;
 	}
@@ -20,14 +20,14 @@ public class AddArrayList {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a number of a Integers");
 		int size = sc.nextInt();
-		ArrayList obj = new ArrayList();
+		ArrayList<Integer> obj = new ArrayList();
 		sc.nextLine();
 		System.out.println("Enter a Integers");
 		for (int i = 0; i < size; i++) {
 			obj.add(sc.nextInt());
 		}
 		AddArrayList addList = new AddArrayList();
-		ArrayList intList = addList.AddIntegersFromArrayList(obj);
+		ArrayList<Integer> intList = addList.AddIntegersFromArrayList(obj);
 		System.out.println("ArrayList is" + intList);
 		sc.close();
 	}

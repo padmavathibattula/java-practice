@@ -59,7 +59,7 @@ public class SumOfElementsInArrayList {
 		ArrayList<Integer> sumList = new ArrayList<>();
 		SumOfElementsInArrayList obj = new SumOfElementsInArrayList();
 
-		ArrayList output = obj.sumofArrayList(list1, list2, sumList);
+		ArrayList<Integer> output = obj.sumofArrayList(list1, list2, sumList);
 		System.out.println(" ArrayList1 after adding all elements from ArrayList 2:"+output);
 	}
 

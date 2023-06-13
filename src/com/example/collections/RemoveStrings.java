@@ -12,9 +12,9 @@ import java.util.Scanner;
      ArrayList after removing strings with length 6:[Apple,Mango,Pineapple]
  */
 public class RemoveStrings {
-	public ArrayList removeStringsFromArrayList(ArrayList obj, int length) {
+	public ArrayList<String> removeStringsFromArrayList(ArrayList<String> obj, int length) {
 		for (int i = 0; i < obj.size(); i++) {
-			String str = (String) obj.get(i);
+			String str =  obj.get(i);
 			if (str.length() == length) {
 				obj.remove(str);
 			}
@@ -27,7 +27,7 @@ public class RemoveStrings {
 		System.out.println("Enter a number of a string");
 		int size = sc.nextInt();
 		
-		ArrayList obj = new ArrayList();
+		ArrayList<String> obj = new ArrayList<>();
 		sc.nextLine();
 		System.out.println("Enter strings");
 		for (int i = 0; i < size; i++) {
@@ -36,7 +36,7 @@ public class RemoveStrings {
 		System.out.println("Enter the length of the string to be remove");
 		int length = sc.nextInt();
 		RemoveStrings rmstr = new RemoveStrings();
-		ArrayList strList = rmstr.removeStringsFromArrayList(obj, length);
+		ArrayList<String> strList = rmstr.removeStringsFromArrayList(obj, length);
 		System.out.println("Arraylist after removing strings with length" + length + ":" + strList);
 
 	}

@@ -17,7 +17,7 @@ public class RemoveElementInLinkedList {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter a number of element:");
 		int size=sc.nextInt();
-		LinkedList list=new LinkedList();
+		LinkedList<Integer> list=new LinkedList<>();
 		System.out.println("Enter a element:");
 		for(int i=0;i<size;i++) {
 			list.add(sc.nextInt());

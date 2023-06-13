@@ -13,7 +13,7 @@ LinkedList after removal:[1 2 3 4]
  */
 
 public class RemoveFirstElementInLinkedList {
-	public LinkedList removeElementGreaterThan4(LinkedList list,int value) {
+	public LinkedList<Integer> removeElementGreaterThan4(LinkedList<Integer> list,int value) {
 		for(int i=0;i<list.size();i++) {
 			int element=(int)list.get(i);
 			if(element>value) {
@@ -28,7 +28,7 @@ public class RemoveFirstElementInLinkedList {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter a number of element:");
 		int size=sc.nextInt();
-		LinkedList list=new LinkedList();
+		LinkedList<Integer> list=new LinkedList();
 		System.out.println("Enter a element:");
 		for(int i=0;i<size;i++) {
 			list.add(sc.nextInt());

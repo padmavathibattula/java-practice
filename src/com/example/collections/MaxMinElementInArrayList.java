@@ -13,36 +13,45 @@ import java.util.Scanner;
      Minimum Element: 10
  */
 public class MaxMinElementInArrayList {
-	public   ArrayList findMaxMin(ArrayList obj,ArrayList maxMin) {
-		int max = Integer.MIN_VALUE;
-	     int min = Integer.MAX_VALUE;
-	    
-		for(int i=0;i<obj.size();i++) {
-			int input=(Integer)obj.get(i);
-			if(input>max) {
-				max=input;
-			}
-			if(input<min) {
-				min=input;
+	public ArrayList<Integer> getMaxMin(ArrayList<Integer> obj, int size) {
+		ArrayList <Integer>output = new ArrayList<>();
+
+		int max =  obj.get(0);
+		int min =  obj.get(0);
+		int elements = obj.size();
+		for (int i = 0; i < size; i++) {
+			int val =  obj.get(i);
+			if (val < min) {
+				min = val;
 			}
 		}
-		return maxMin;
-		
+		for (int i = 0; i < size; i++) {
+			int maxval = (int) obj.get(i);
+			if (maxval > max) {
+				max = maxval;
+			}
+		}
+		output.add(min);
+		output.add(max);
+		return output;
 	}
+
 	public static void main(String[] args) {
-		Scanner sc =new Scanner(System.in);
-		System.out.print("Enter the number of elements:");
-		int size=sc.nextInt();
-		ArrayList obj =new ArrayList();
-		sc.nextLine();
-		System.out.print("Enter the array elements:");
-		int length=sc.nextInt();
-		MaxMinElementInArrayList mme=new MaxMinElementInArrayList();
-		ArrayList maxMin = null;
-		ArrayList output=mme.findMaxMin(obj, maxMin);
-        System.out.println("MaximumElement:"+maxMin);
-        
-        sc.close();
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter a number of elements: ");
+		int size = scanner.nextInt();
+		ArrayList<Integer> obj = new ArrayList<>();
+		System.out.println("Enter the array elements: ");
+		for (int i = 0; i < size; i++) {
+			obj.add(scanner.nextInt());
+		}
+		MaxMinElementInArrayList maxmin = new MaxMinElementInArrayList();
+		ArrayList output = maxmin.getMaxMin(obj, size);
+		System.out.println("maximum: " + output.get(1));
+		System.out.println("minimum: " + output.get(0));
+		System.out.println(output.size());
+		scanner.close();
+
 	}
 
 }
