@@ -18,11 +18,12 @@ package com.example.collections;
  */
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class FrequencyElementsInHashMap {
-	public HashMap<Character, Integer> charCountFrequency(String Str, HashMap<Character, Integer> charFreqMap) {
+	public LinkedHashMap<Character, Integer> charCountFrequency(String Str, LinkedHashMap<Character, Integer> charFreqMap) {
 		for (int i = 0; i < Str.length(); i++) {
 			Character ch = Str.charAt(i);
 			if (charFreqMap.containsKey(ch)) {
@@ -39,9 +40,9 @@ public class FrequencyElementsInHashMap {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a string:");
 		String Str = sc.nextLine();
-		HashMap<Character, Integer> charFreqMap = new HashMap<>();
+		LinkedHashMap<Character, Integer> charFreqMap = new LinkedHashMap<>();
 		FrequencyElementsInHashMap Obj = new FrequencyElementsInHashMap();
-		HashMap<Character, Integer> Output = Obj.charCountFrequency(Str, charFreqMap);
+		LinkedHashMap<Character, Integer> Output = Obj.charCountFrequency(Str, charFreqMap);
 		System.out.println("Character frequency:"+charFreqMap);
 		sc.close();
 	}
