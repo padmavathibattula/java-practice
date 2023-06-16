@@ -1,4 +1,6 @@
 package com.java.programs.arrays;
+// time complexity:16
+//space complexity:4
 import java.util.Scanner;
 public class SumArrayElements {
 	public  int getSumArrayElements(int[] arr, int sum) {

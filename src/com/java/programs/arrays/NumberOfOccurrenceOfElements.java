@@ -13,6 +13,8 @@ Output:
 The element 3 occurs 2 times in the array
 
  */
+// time complexity:5
+// space complexity:5
 public class NumberOfOccurrenceOfElements {
 	public int[] getNumberOfOccurencesOfElements(int[] arr, int search) {
 		int[] outputArr = new int[2];

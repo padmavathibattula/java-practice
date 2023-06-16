@@ -10,6 +10,8 @@ import java.util.Scanner;
      Output:
      True
  */
+//Time complexity:5
+// space complexity:5
 public class AscendingOrder {
 	public static boolean isArraySorted(int arr[]) {
 		for (int i = 0; i < arr.length - 1; i++) {

@@ -1,5 +1,6 @@
 package com.java.programs.arrays;
-
+// Time complexity:5
+//space complexity:5
 public class ArrayExample {
 	public static void main(String[] args) {
 		int[] numbers = new int[5];

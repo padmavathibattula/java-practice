@@ -11,6 +11,8 @@ import java.util.Scanner;
        Output:
        Array after removing 3: 1 2 4 5
  */
+//time complexity:25
+// space complexity:5
 
 public class RemoveAspecificElementInArray {
 	public int[] getRemoveElement(int[] arr, int element) {

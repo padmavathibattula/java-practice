@@ -10,6 +10,8 @@ import java.util.Scanner;
      Output:
      The minimum element is 5
 */
+// time complexity:5
+// space complexity:5
 public class MinimumElementInArray {
 	public int getMinimumElementsInArray(int[] arr, int min) {
 		for (int i = 0; i < arr.length; i++) {

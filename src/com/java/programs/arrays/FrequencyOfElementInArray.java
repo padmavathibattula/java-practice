@@ -12,6 +12,8 @@ Output:
 1 occurs 3 times, 2 occurs 2 times, 3 occurs 1 time, 4 occurs 1 time, 5
 occurs 1 time
  */
+// time complexity:64
+// space complexity:8
 public class FrequencyOfElementInArray {
 	public String[] getFrequencyOfEachElement(int[] arr) {
 		String[] outputArr = new String[arr.length];

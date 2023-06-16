@@ -10,6 +10,8 @@ import java.util.Scanner;
        Output:
        Array in descending order: 25 20 15 10 5
  */
+//Time complexity:25
+//space complexity:5
 public class DecendingOrder {
 	public int [] getDecendingOrder(int[] arr) {
 		int temp = 0;

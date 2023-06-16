@@ -1,4 +1,6 @@
 package com.java.programs.arrays;
+//time complexity:10
+// space complexity:10
 
 import java.util.Scanner;
 

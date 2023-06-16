@@ -1,4 +1,6 @@
 package com.java.programs.arrays;
+// time complexity:3
+// space complexity:5
 import java.util.Arrays;
 /*
  * 7.Write a program to reverse an array.
