@@ -30,7 +30,7 @@ public class DisplayInTreeSet {
 		}
 		DisplayInTreeSet obj=new DisplayInTreeSet();
 		TreeSet<Integer> intList = obj.getDisplay(set);
-		System.out.println("ArrayList is" + intList);
+		System.out.println("TreeSet is" + intList);
 		//System.out.println("TreeSet: "+outputset);
 	}
 

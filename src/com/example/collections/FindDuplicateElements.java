@@ -23,27 +23,30 @@ import java.util.Set;
 
 public class FindDuplicateElements {
 	public ArrayList<Integer> findDuplicateElements(ArrayList<Integer> arrayElements) {
-        ArrayList<Integer>Outputarr=new ArrayList<>();
-		Map<Integer, Integer> arrayMap = new HashMap<Integer, Integer>();
+		ArrayList<Integer> outputarr = new ArrayList<>();
+		HashMap<Integer, Integer> arrayMap = new HashMap<Integer, Integer>();
 		for (Integer e : arrayElements) {
-			if (arrayMap.containsKey(e) ) {
-				int count =arrayMap.put(e, 1);
+			if (arrayMap.containsKey(e)) {
+				int count = arrayMap.get(e);
 				count++;
+				arrayMap.put(e, count);
 			} else {
 				arrayMap.put(e, 1);
 			}
 		}
 		// print all the duplicate elements:
-		
-		for (Integer value: arrayMap.keySet()) {
-			 if (value.getValue()>1)){
-	           
-	        	   Outputarr.add(value.getKey());
-	           }
-			
+
+		for (Integer key : arrayMap.keySet()) {
+			int value = arrayMap.get(key);
+
+			if (value > 1) {
+
+				outputarr.add(key);
+			}
+
 		}
-		//return arrayElements;
-		return Outputarr;
+		// return arrayElements;
+		return outputarr;
 	}
 
 	public static void main(String[] args) {
@@ -56,8 +59,8 @@ public class FindDuplicateElements {
 			obj.add(sc.nextInt());
 		}
 		FindDuplicateElements arr = new FindDuplicateElements();
-		ArrayList<Integer>array = arr.findDuplicateElements(obj);
-		System.out.println("Duplicate elements:"+array);
+		ArrayList<Integer> array = arr.findDuplicateElements(obj);
+		System.out.println("Duplicate elements:" + array);
 
 	}
 

@@ -15,7 +15,7 @@ public class Bank {
 			return true;
 		}
 		Bank bank = (Bank) obj;
-		if (this.accountNumber == bank.accountNumber) {
+		if (this.accountNumber.equals(bank.accountNumber)) {
 			return true;
 		} else
 			return false;

@@ -20,7 +20,7 @@ public class PalindromeLinkedList {
 			int val =  list.get(j);
 			list2.add(val);
 		}
-		if (list2.equals(reverse)) {// madam.equals(madam)
+		if (list2.equals(list)) {// madam.equals(madam)
 			isPalindrome = true;
 		}
 		return isPalindrome;
