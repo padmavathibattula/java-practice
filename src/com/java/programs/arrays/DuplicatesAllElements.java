@@ -10,8 +10,8 @@ import java.util.Scanner;
        Output:
        1 2 3 4 5
  */
-//Time complexity:8*8*8
-// space complexity:8
+//Time complexity:O(n*n*n)
+// space complexity:O(n)
 public class DuplicatesAllElements {
 	private int getRemoveDuplicatesArray(int[] arr, int size) {
 		for (int i = 0; i < size; i++) {

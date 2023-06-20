@@ -1,6 +1,6 @@
 package com.java.programs.arrays;
-//time complexity:5
-// space complexity:5
+//time complexity:O(n)
+// space complexity:O(n)
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
 package com.java.programs.arrays;
-//Time complexity:5
-//space complexity:5
+//Time complexity:O(n)
+//space complexity:O(n)
 import java.util.Scanner;
 
 public class ArrayAverageExample {

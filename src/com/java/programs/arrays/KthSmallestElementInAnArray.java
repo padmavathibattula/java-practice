@@ -12,8 +12,8 @@ import java.util.Scanner;
        Output:
        The 3rd smallest element is 15
  */
-// time complexity:25
-// space complexity:5
+// time complexity:O(n*n)
+// space complexity:O(n)
 public class KthSmallestElementInAnArray {
 	public int getKthSmallestElement(int[] arr, int k) {
 		int kthSmallest = arr[0];

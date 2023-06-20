@@ -11,8 +11,8 @@ Output:
 Element: 1, Occurrences: 3
 
  */
-// time complexity:5
-// space complexity:5
+// time complexity:O(n)
+// space complexity:O(n)
 
 public class MostFrequencyOfElementInArray {
 	public int[] getMostFrequencyOfElementInArray(int[] arr) {
