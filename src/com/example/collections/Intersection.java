@@ -26,8 +26,14 @@ public class Intersection {
 		ArrayList<Integer> intersection = new ArrayList<>();
 
 		// Count frequencies of elements in array1
-		for (int num : array1) {
-			frequencyMap.put(num, frequencyMap.get(num) + 1);
+		for (Integer element : array1) {
+			if (frequencyMap.containsKey(element)) {
+				int count = frequencyMap.get(element);
+				count++;
+				frequencyMap.put(element, count);
+			} else {
+				frequencyMap.put(element, 1);
+			}
 		}
 
 		// Find intersection by checking elements of array2 with frequency map

@@ -13,42 +13,42 @@ import java.util.Scanner;
  */
 
 public class SpecificPrefixHashMap {
-	public HashMap<String,Integer> getPrefixRemove(HashMap<String,Integer>map, String Prefix) {
-		Object key = null;
-			//for(int i=0;i<map.size();i++) {
-			int fruits= map.get(key);
-			if(Prefix==key) {
+	public HashMap<String, Integer> getPrefixRemove(HashMap<String, Integer> map, String Prefix) {
+		for (String fruit : map.keySet()) {
+			String key = "";
+			int fruits = map.get(key);
+			if (Prefix == key) {
 				map.remove(key);
 			}
-			//}
+		}
+		// }
 		return map;
 	}
+
 	public static void main(String[] args) {
-		Scanner scanner=new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a number of elements: ");
-		int size=scanner.nextInt();
-		HashMap<String,Integer> map=new HashMap<>();
+		int size = scanner.nextInt();
+		HashMap<String, Integer> map = new HashMap<>();
 		scanner.nextLine();
-		for(int i=0;i<size;i++) {
+		for (int i = 0; i < size; i++) {
 			System.out.println("Enter a key: ");
-			String key=scanner.nextLine();
+			String key = scanner.nextLine();
 			System.out.println("Enter a value: ");
-			int value=scanner.nextInt();
-			map.put(key,value);
+			int value = scanner.nextInt();
+			map.put(key, value);
 			scanner.nextLine();
 		}
 		for (String fruit : map.keySet()) {
 			System.out.println(map);
 		}
-		
+
 		System.out.println("Enter a prefix: ");
-		String prefix=scanner.toString();
-		SpecificPrefixHashMap obj=new SpecificPrefixHashMap();
-		HashMap outputMap=obj.getPrefixRemove(map, prefix);
-		System.out.println("HashMap After remove: "+outputMap);
-		
+		String prefix = scanner.toString();
+		SpecificPrefixHashMap obj = new SpecificPrefixHashMap();
+		HashMap outputMap = obj.getPrefixRemove(map, prefix);
+		System.out.println("HashMap After remove: " + outputMap);
+
 	}
-
-
 
 }
