@@ -1,6 +1,7 @@
 package com.example.collections;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
 /*
  *  20. Write a program to remove all entries from a HashMap where the key
@@ -13,15 +14,16 @@ import java.util.Scanner;
  */
 
 public class SpecificPrefixHashMap {
-	public HashMap<String, Integer> getPrefixRemove(HashMap<String, Integer> map, String Prefix) {
-		for (String fruit : map.keySet()) {
-			String key = "";
-			int fruits = map.get(key);
-			if (Prefix == key) {
+	public HashMap<String, Integer> getPrefixRemove(HashMap<String, Integer> map, String prefix) {
+		Iterator<String> itr = map.keySet().iterator();
+		while (itr.hasNext()) {
+			String key = itr.next();
+			if (key.startsWith(prefix)) {
 				map.remove(key);
 			}
+
 		}
-		// }
+
 		return map;
 	}
 
@@ -30,25 +32,20 @@ public class SpecificPrefixHashMap {
 		System.out.println("Enter a number of elements: ");
 		int size = scanner.nextInt();
 		HashMap<String, Integer> map = new HashMap<>();
-		scanner.nextLine();
 		for (int i = 0; i < size; i++) {
 			System.out.println("Enter a key: ");
-			String key = scanner.nextLine();
+			String key = scanner.next();
 			System.out.println("Enter a value: ");
 			int value = scanner.nextInt();
 			map.put(key, value);
-			scanner.nextLine();
-		}
-		for (String fruit : map.keySet()) {
-			System.out.println(map);
 		}
 
 		System.out.println("Enter a prefix: ");
-		String prefix = scanner.toString();
+		String prefix = scanner.next();
 		SpecificPrefixHashMap obj = new SpecificPrefixHashMap();
-		HashMap outputMap = obj.getPrefixRemove(map, prefix);
+		HashMap<String, Integer> outputMap = obj.getPrefixRemove(map, prefix);
 		System.out.println("HashMap After remove: " + outputMap);
-
+		scanner.close();
 	}
 
 }

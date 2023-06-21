@@ -1,5 +1,6 @@
 package com.example.collections;
 
+
 import java.util.HashSet;
 /*
  * 19. Write a Java program to remove all the elements from one HashSet that
@@ -16,8 +17,9 @@ import java.util.Scanner;
 public class NonmatchingElements {
 
     public  HashSet<Integer>  removeNonMatchingElements(HashSet<Integer> set1, HashSet<Integer> set2) {
-        set1.retainAll(set2);
-		return set2;
+        
+		 set2.retainAll(set1);
+		 return set2;
 		
     }
 	    public static void main(String[] args) {
