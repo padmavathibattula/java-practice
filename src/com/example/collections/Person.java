@@ -1,6 +1,6 @@
 package com.example.collections;
 
-public class Person {
+public class Person implements Comparable<Person>{
 	private String name;
 	private int age;
 
@@ -26,6 +26,23 @@ public class Person {
 		int result = this.name.hashCode();
 		result = result + age;
 		return result;
+	}
+	@Override
+	public int compareTo(Person obj) {
+		if (this.age < obj.age) {
+			return -1;
+		} else if (this.age > obj.age) {
+			return 1;
+
+		} else {
+			return 0;
+		}
+
+	}
+    
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + "]";
 	}
 
 	public static void main(String[] args) {
