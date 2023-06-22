@@ -21,8 +21,8 @@ public class Employee {
 		if (this == obj) {
 			return true;
 		}
-		Employee employee = (Employee) obj;
-		if (this.empId.equals(employee.empId) && this.name.equals(employee.name)) {
+		Employee emp = (Employee) obj;
+		if (this.empId.equals(emp.empId) && this.name.equals(emp.name)) {
 			return true;
 		} else {
 			return false;
@@ -41,15 +41,16 @@ public class Employee {
 		return "Employee [empId=" + empId + ", name=" + name + "]";
 	}
 	public static void main(String[] args) {
-		HashMap<Employee,Integer>employeeMap=new HashMap<>();
-		Employee padma = new Employee("padma","101");
-		employeeMap.put(padma, 1);
-		Employee sujatha=new Employee("padma","101");
-		employeeMap.put(sujatha, 2);
-		for(Employee key:employeeMap.keySet()) {
+		HashMap<Employee,Integer>employeeDetails=new HashMap<>();
+		Employee emp1= new Employee("padma","101");
+		employeeDetails.put(emp1, 1);
+		Employee emp2=new Employee("niha","101");
+		employeeDetails.put(emp2, 2);
+		for(Employee key:employeeDetails.keySet()) {
 			System.out.print(key);
-			System.out.println(employeeMap.get(key));
+			System.out.println(employeeDetails.get(key));
 		}
+		
 	}
 	
 

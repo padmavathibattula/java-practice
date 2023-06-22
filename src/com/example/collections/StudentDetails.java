@@ -8,10 +8,10 @@ import java.util.HashMap;
  *  them using for each loop
  */
 
-public class Student1 {
+public class StudentDetails {
 	private String studentId;
 	private String studentName;
-	public Student1(String studentId,String studentName) {
+	public StudentDetails(String studentId,String studentName) {
 		this.studentId=studentId;
 		this.studentName=studentName;
 	}
@@ -20,7 +20,7 @@ public class Student1 {
 		if(this==obj) {
 			return true;
 		}
-		Student1 sudent=(Student1)obj;
+		StudentDetails sudent=(StudentDetails)obj;
 		if(this.equals(sudent.studentId)&&this.studentName.equals(sudent.studentName)) {
 			return true;
 		}else {
@@ -35,15 +35,15 @@ public class Student1 {
 		}
 	@Override
 	public String toString() {
-		return "Student1 [studentId=" + studentId + ", studentName=" + studentName + "]";
+		return "StudentDetails [studentId=" + studentId + ", studentName=" + studentName + "]";
 	}
 	public static void main(String[] args) {
-		HashMap<Student1,Integer>student=new HashMap<>();
-		Student1 padma=new Student1("niha","200");
+		HashMap<StudentDetails,Integer>student=new HashMap<>();
+		StudentDetails padma=new StudentDetails("niha","200");
 		student.put(padma, 1);
-		Student1 padma1=new Student1("padma","200");
+		StudentDetails padma1=new StudentDetails("padma","200");
 		student.put(padma1, 2);
-		for(Student1 key:student.keySet()) {
+		for(StudentDetails key:student.keySet()) {
 			System.out.print(key + " ");
 			System.out.println(student.get(key));
 		}
