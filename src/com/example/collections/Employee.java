@@ -18,10 +18,10 @@ public class Employee implements Comparable<Employee> {
 	private String name;
 	private float salary;
 
-	public Employee(String empId, String name,float salary) {
+	public Employee(String empId, String name, float salary) {
 		this.empId = empId;
 		this.name = name;
-		this.salary=salary;
+		this.salary = salary;
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class Employee implements Comparable<Employee> {
 			return true;
 		}
 		Employee emp = (Employee) obj;
-		if (this.empId.equals(emp.empId) && this.name.equals(emp.name)&&this.salary==(emp.salary)) {
+		if (this.empId.equals(emp.empId) && this.name.equals(emp.name) && this.salary == (emp.salary)) {
 			return true;
 		} else {
 			return false;
@@ -44,43 +44,57 @@ public class Employee implements Comparable<Employee> {
 		return result;
 	}
 
-	
+	public int compareTo(Employee obj) {
+		if (this.salary < obj.salary) {
+			return -1;
+		} else if (this.salary > obj.salary) {
+			return 1;
+
+		} else {
+			return 0;
+		}
+
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", name=" + name + ", salary=" + salary + "]";
 	}
 
 	public static void main(String[] args) {
-		HashMap<Employee,Integer>employeeDetails=new HashMap<>();
-		Employee emp1= new Employee("padma","101",2523);
-		employeeDetails.put(emp1, 1);
-		Employee emp2=new Employee("niha","101",2564);
-		employeeDetails.put(emp2, 2);
-		for(Employee key:employeeDetails.keySet()) {
-			System.out.print(key);
-			System.out.println(employeeDetails.get(key));
-			Scanner sc=new Scanner(System.in);
-			System.out.println("Enter no of employee salaries:");
-			int size=sc.nextInt();
-			ArrayList<Float>employee=new ArrayList<>();
-			System.out.println("Enter employee salaries:");
-			float salary=sc.nextFloat();
-			for(int i=0;i<size;i++) {
-				employee.add(sc.nextFloat());
+		/*
+		 * HashMap<Employee, Integer> employeeDetails = new HashMap<>(); Employee emp1 =
+		 * new Employee("padma", "101", 2523); employeeDetails.put(emp1, 1); Employee
+		 * emp2 = new Employee("niha", "101", 2564); employeeDetails.put(emp2, 2); for
+		 * (Employee key : employeeDetails.keySet()) { System.out.print(key);
+		 * System.out.println(employeeDetails.get(key)); }
+		 */
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter no of employee salaries: ");
+		int size = scanner.nextInt();
+		ArrayList<Float> employee = new ArrayList<>();
+		System.out.println("Enter employee salaries: ");
+		float salary = scanner.nextFloat();
+		for (int i = 0; i < size; i++) {
+			employee.add(scanner.nextFloat());
+			ArrayList<Employee> employees= new ArrayList<>();
+			Employee emp1 = new Employee("12345", "sujatha", (float) 10.5);
+			Employee emp2 = new Employee("123456", "Shiva", (float) 5.5);
+			int compare = emp1.compareTo(emp2);
+			if (compare == 1) {
+				System.out.println(emp1.name + " salary is greater than " + emp2.name + " salary");
+			} else if (compare == -1) {
+				System.out.println(emp1.name + " salary is less than " + emp2.name + " salary");
+			} else {
+				System.out.println(emp1.name + " and  " + emp2.name + " have the same salary");
 			}
-			System.out.println("Before collections sort employee salaries:"+employee);
-			Collections.sort(employee);
-			System.out.println("After colletion sort employee salaries:"+employee);
+			System.out.println("Before collection sort employee salaries: " + employees);
+			employees.add(emp1);
+			employees.add(emp2);
+			System.out.println("Before collection sort employee salaries: " + employees);
+			Collections.sort(employees);
+			System.out.println("After collection sort employee salaries: " + employees);
+			System.out.println("After collection sort employee salaries: " + employees);
 		}
-		
-		
 	}
-
-	@Override
-	public int compareTo(Employee o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-
 }

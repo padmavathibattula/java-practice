@@ -10,6 +10,10 @@ import java.util.Scanner;
  *  objects are equal if they have same studentid and name put the student object as keys in hashmap and print 
  *  them using for each loop
  */
+/*
+ * in the student class add an instance variable gpa(double) and implement comparable gpa,s create a arraylist of student 
+ * of students and sort them using collections.sort()method
+ */
 
 public class StudentDetails {
 	private String studentId;
@@ -41,6 +45,17 @@ public class StudentDetails {
 		result = result + this.studentId.hashCode();
 		return result;
 	}
+	public int compareTo(StudentDetails obj) {
+		if (this.gpa < obj.gpa) {
+			return -1;
+		} else if (this.gpa > obj.gpa) {
+			return 1;
+
+		} else {
+			return 0;
+		}
+
+	}
 
 	@Override
 	public String toString() {
@@ -48,7 +63,7 @@ public class StudentDetails {
 	}
 
 	public static void main(String[] args) {
-		HashMap<StudentDetails, Integer> student = new HashMap<>();
+		/*HashMap<StudentDetails, Integer> student = new HashMap<>();
 		StudentDetails padma = new StudentDetails("niha", "200", 123.5);
 		student.put(padma, 1);
 		StudentDetails padma1 = new StudentDetails("padma", "200", 456.7);
@@ -56,20 +71,37 @@ public class StudentDetails {
 		for (StudentDetails key : student.keySet()) {
 			System.out.print(key + " ");
 			System.out.println(student.get(key));
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("Enter no of students gpas: ");
-			int size = scanner.nextInt();
-			ArrayList<Double> students = new ArrayList<>();
-			System.out.println("Enter student gpas: ");
-			double gpas = scanner.nextDouble();
-			for (int i = 0; i < size; i++) {
-				students.add(scanner.nextDouble());
+		}*/
+		Scanner sc =new Scanner(System.in);
+		System.out.println("Enter no of students gpa:");
+		int size=sc.nextInt();
+		ArrayList<Double>student=new ArrayList<>();
+		System.out.println("Enter students gpa:");
+		double gpa=sc.nextDouble();
+		for(int i=0;i<size;i++) {
+			student.add(sc.nextDouble());
+			ArrayList<StudentDetails>students=new ArrayList<>();
+			StudentDetails student1=new StudentDetails("niha","123",(double)34.67);
+			StudentDetails student2=new StudentDetails("padma","4567",(double)456.7);
+			 int compare = student1.compareTo(student2);
+			if (compare == 1) {
+				System.out.println(student1.studentName + " gpa is greater than " + student2.studentName + " gpa");
+			} else if (compare == -1) {
+				System.out.println(student1.studentName + " gpa is less than " + student2.studentName + " gpa");
+			} else {
+				System.out.println(student1.studentName + " and  " + student2.studentName + " have the same gpa");
 			}
-			System.out.println("Before collection sort students gpas: " + students);
-			Collections.sort(students);
-			System.out.println("After collection sort students gpas: " + students);
-
+			System.out.println("Before collection sort employee salaries: " + students);
+			students.add(student1);
+			students.add(student2);
+			System.out.println("Before collection sort employee salaries: " + students);
+			Collections.sort(student);
+			System.out.println("After collection sort employee salaries: " + students);
+			System.out.println("After collection sort employee salaries: " + students);
+			
 		}
+		
 
 	}
+
 }
