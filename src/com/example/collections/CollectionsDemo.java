@@ -15,10 +15,10 @@ public class CollectionsDemo {
 		Collections.sort(names);
 		System.out.println(names);
 		ArrayList<Person>persons=new ArrayList<>();
-		Person person1=new Person("padma",35);
-		Person person2=new Person("Sujatha",21);
-		Person person3=new Person("Siva",29);
-		Person person4=new Person("latha",30);
+		Person person1=new Person("padma",35,34.2);
+		Person person2=new Person("Sujatha",21,78.6);
+		Person person3=new Person("Siva",29,65.3);
+		Person person4=new Person("latha",30,34.56);
 		persons.add(person1);
 		persons.add(person2);
 		persons.add(person3);
