@@ -26,6 +26,30 @@ public class StudentDetails {
 		this.gpa = gpa;
 	}
 
+	public String getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
+	}
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+	public double getGpa() {
+		return gpa;
+	}
+
+	public void setGpa(double gpa) {
+		this.gpa = gpa;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -45,6 +69,7 @@ public class StudentDetails {
 		result = result + this.studentId.hashCode();
 		return result;
 	}
+
 	public int compareTo(StudentDetails obj) {
 		if (this.gpa < obj.gpa) {
 			return -1;
@@ -63,27 +88,19 @@ public class StudentDetails {
 	}
 
 	public static void main(String[] args) {
-		/*HashMap<StudentDetails, Integer> student = new HashMap<>();
-		StudentDetails padma = new StudentDetails("niha", "200", 123.5);
-		student.put(padma, 1);
-		StudentDetails padma1 = new StudentDetails("padma", "200", 456.7);
-		student.put(padma1, 2);
-		for (StudentDetails key : student.keySet()) {
-			System.out.print(key + " ");
-			System.out.println(student.get(key));
-		}*/
-		Scanner sc =new Scanner(System.in);
+
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter no of students gpa:");
-		int size=sc.nextInt();
-		ArrayList<Double>student=new ArrayList<>();
+		int size = sc.nextInt();
+		ArrayList<Double> student = new ArrayList<>();
 		System.out.println("Enter students gpa:");
-		double gpa=sc.nextDouble();
-		for(int i=0;i<size;i++) {
+		double gpa = sc.nextDouble();
+		for (int i = 0; i < size; i++) {
 			student.add(sc.nextDouble());
-			ArrayList<StudentDetails>students=new ArrayList<>();
-			StudentDetails student1=new StudentDetails("niha","123",(double)34.67);
-			StudentDetails student2=new StudentDetails("padma","4567",(double)456.7);
-			 int compare = student1.compareTo(student2);
+			ArrayList<StudentDetails> students = new ArrayList<>();
+			StudentDetails student1 = new StudentDetails("niha", "123", (double) 34.67);
+			StudentDetails student2 = new StudentDetails("padma", "4567", (double) 456.7);
+			int compare = student1.compareTo(student2);
 			if (compare == 1) {
 				System.out.println(student1.studentName + " gpa is greater than " + student2.studentName + " gpa");
 			} else if (compare == -1) {
@@ -98,9 +115,8 @@ public class StudentDetails {
 			Collections.sort(student);
 			System.out.println("After collection sort employee salaries: " + students);
 			System.out.println("After collection sort employee salaries: " + students);
-			
+
 		}
-		
 
 	}
 

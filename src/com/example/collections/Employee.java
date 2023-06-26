@@ -24,6 +24,30 @@ public class Employee implements Comparable<Employee> {
 		this.salary = salary;
 	}
 
+	public String getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(String empId) {
+		this.empId = empId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getSalary() {
+		return salary;
+	}
+
+	public void setSalary(float salary) {
+		this.salary = salary;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -62,13 +86,7 @@ public class Employee implements Comparable<Employee> {
 	}
 
 	public static void main(String[] args) {
-		/*
-		 * HashMap<Employee, Integer> employeeDetails = new HashMap<>(); Employee emp1 =
-		 * new Employee("padma", "101", 2523); employeeDetails.put(emp1, 1); Employee
-		 * emp2 = new Employee("niha", "101", 2564); employeeDetails.put(emp2, 2); for
-		 * (Employee key : employeeDetails.keySet()) { System.out.print(key);
-		 * System.out.println(employeeDetails.get(key)); }
-		 */
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter no of employee salaries: ");
 		int size = scanner.nextInt();
@@ -77,7 +95,7 @@ public class Employee implements Comparable<Employee> {
 		float salary = scanner.nextFloat();
 		for (int i = 0; i < size; i++) {
 			employee.add(scanner.nextFloat());
-			ArrayList<Employee> employees= new ArrayList<>();
+			ArrayList<Employee> employees = new ArrayList<>();
 			Employee emp1 = new Employee("12345", "sujatha", (float) 10.5);
 			Employee emp2 = new Employee("123456", "Shiva", (float) 5.5);
 			int compare = emp1.compareTo(emp2);
