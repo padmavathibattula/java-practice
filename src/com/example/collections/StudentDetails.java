@@ -15,7 +15,7 @@ import java.util.Scanner;
  * of students and sort them using collections.sort()method
  */
 
-public class StudentDetails {
+public class StudentDetails implements Comparable<StudentDetails> {
 	private String studentId;
 	private String studentName;
 	private double gpa;
@@ -69,7 +69,8 @@ public class StudentDetails {
 		result = result + this.studentId.hashCode();
 		return result;
 	}
-
+    
+	@Override
 	public int compareTo(StudentDetails obj) {
 		if (this.gpa < obj.gpa) {
 			return -1;
@@ -84,7 +85,7 @@ public class StudentDetails {
 
 	@Override
 	public String toString() {
-		return "StudentDetails [studentId=" + studentId + ", studentName=" + studentName + "]";
+		return "StudentDetails [studentId=" + studentId + ", studentName=" + studentName + ", gpa=" +gpa+ "]";
 	}
 
 	public static void main(String[] args) {

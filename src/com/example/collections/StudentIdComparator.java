@@ -9,13 +9,7 @@ public class StudentIdComparator implements Comparator<StudentDetails> {
 		String studentid1=o1.getStudentId();
 		String studentid2=o2.getStudentId();
 		int result=studentid1.compareTo(studentid2);
-		if(result<0) {
-			return -1;
-		}else if(result>0) {
-			return 1;
-		}else {
-			return 0;
-		}
+		return result;
 	}
 
 }

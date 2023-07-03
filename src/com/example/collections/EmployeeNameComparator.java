@@ -9,12 +9,6 @@ public class EmployeeNameComparator implements Comparator<Employee> {
 		String empName1 = o1.getName();
 		String empName2 = o2.getName();
 		int result = empName1.compareTo(empName2);
-		if (result < 0) {
-			return -1;
-		} else if (result > 0) {
-			return 1;
-		} else {
-			return 0;
-		}
+		return result;
 	}
 }

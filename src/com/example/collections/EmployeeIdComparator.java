@@ -9,12 +9,6 @@ public class EmployeeIdComparator implements Comparator<Employee> {
 		String empid1 = o1.getEmpId();
 		String empid2 = o2.getEmpId();
 		int result = empid1.compareTo(empid2);
-		if (result < 0) {
-			return -1;
-		} else if (result > 0) {
-			return 1;
-		} else {
-			return 0;
-		}
+		return result;
 	}
 }
