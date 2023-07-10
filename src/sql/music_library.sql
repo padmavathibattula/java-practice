@@ -25,6 +25,7 @@ title  VARCHAR(100) Not Null,
 duration INT Not Null,
 genre VARCHAR(50),
 album_id INT Not Null,
+name VARCHAR(100) Not Null,
  Foreign Key(album_id)references albums(album_id)); 
  
  create table playlist_songs(
@@ -33,6 +34,7 @@ album_id INT Not Null,
  song_id INT Not Null,
  Foreign Key(playlist_id)references playlists(playlist_id ),
  Foreign Key (song_id)references songs(song_id));
+
   
 insert into artists( name)
 values
@@ -47,14 +49,14 @@ insert into albums(artist_id,title,release_date)
    (2,'Debut Album','2019-09-20'),
    (3,'Collection','2021-11-30');
    
-insert into songs(album_id,title,duration,genre)
+insert into songs(album_id,title,name,duration,genre)
    values
-   (1,'Song One',240,'Pop'),
-   (1,'Song Two',180,'Rock'),
-   (2,'Song Three',210,'Pop'),
-   (3,'Debut Song',195,'Electronic'),
-   (3,'Another Song',220,'Rock'),
-   (4,'Collection Song',275,'Pop');
+   (1,'Song One','Tumsey Pyaar Karke',240,'Pop'),
+   (1,'Song Two','Kuch Baatien',180,'Rock'),
+   (2,'Song Three','Doobey',210,'Pop'),
+   (3,'Debut Song','Raatan Lambiyan',195,'Electronic'),
+   (3,'Another Song','Barsaat Ki Dhun',220,'Rock'),
+   (4,'Collection Song','Ranjhaa',275,'Pop');
    
    insert into playlists(name)
    values
@@ -81,12 +83,32 @@ insert into genres(name)
    
 select * from artists;
 select title from albums;
-select *from music_library.songs;
 select name from songs;
-select names from artists where release_date in(select release_date from albums where release_date='2018-' );
-select title from albums where release_date ='2020-05-10';
-select title from albums where name='John Smith';
-select title from albums where name in (select name from artists where name='John Smith');
+select name from  artists where artist_id in(select artist_id from albums where release_date='2020-05-10' );
+select title from albums where release_date like '2020%';
+
+select name,genre from songs where genre='pop';
+select name,duration from songs where duration>200;
+select title,artist_id from albums where artist_id in (select artist_id  from artists where artist_id=1);
+select name from artists  where gener in(select gener from songs where gener='Rock');
+select name from songs where name in(select name from playlists where name='party');
+
+SELECT * FROM music_library.songs;
+select album_id from songs where genre='Pop' ; 
+select name from artists where artist_id in
+(select artist_id from albums where album_id in
+(select album_id from songs where genre='Electronic'));
+
+select name from artists where artist_id in
+(select artist_id from albums where album_id in
+(select album_id from songs where genre='Rock'));
+
+SELECT * FROM music_library.playlist_songs;
+select * from songs where song_id in
+(select song_id from playlist_songs where playlist_id in
+(select playlist_id from playlists where name='Party'));
+
+
 
 
   
