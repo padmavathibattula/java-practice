@@ -73,12 +73,18 @@ values
 (2,4),
 (3,3),
 (4,4);
-
+#1. Retrieve the names of all candidates running in the election.
 select candidate_name from candidate;
+#2. Retrieve the names and addresses of all registered voters.
 select voter_name,voted_address from voters;
+#3. Retrieve the total number of votes cast for each candidate.
+select voter_id,count(*)voter_id from election.voters group by voter_id;
 select candidate_id, count(total_votes) from results group by candidate_id;
+#8. Retrieve the voter who cast the maximum number of votes.
 select candidate_id,max(total_votes) from results group by  candidate_id ;
+#7. Retrieve the names of candidates and their corresponding party names in a specific constituency.
 select candidate_name,party_name from candidate where constituency='constituencyA' in (select candidate_id  from candidate where candidate_id=1);
+#3. Retrieve the total number of votes cast for each candidate
 select voter_id,voter_constituency from voters;
 
 
