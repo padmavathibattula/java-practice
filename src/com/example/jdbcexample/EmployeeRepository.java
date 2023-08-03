@@ -1,5 +1,6 @@
 package com.example.jdbcexample;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ public class EmployeeRepository {
 			// step3:create a sql statement
 			statement = connection.createStatement();
 			// step4:execute the query
-			rs = statement.executeQuery("select * from attendance limit 10");
+			rs = statement.executeQuery("select * from attendance limit 2");
 			// step5:process result set
 			while (rs.next()) {
 				int id = rs.getInt("id");
@@ -44,9 +45,12 @@ public class EmployeeRepository {
 		}
 	}
 	
+	
 	public static void main(String[] args) {
 		EmployeeRepository obj=new EmployeeRepository();
 		obj.printAttendance();
+		//obj.selectRecordsByEmployeeId();
+		//obj.getBooks();
 	}
 
 }
