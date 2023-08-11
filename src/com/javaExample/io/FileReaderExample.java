@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class FileReaderExample {
 	public static void main(String[] args) {
-		String filePath = "D:\\JavaSyllabus.txt.txt";
+		String filePath = "D:\\JavaSyllabus.txt";
 		try {
 			FileReader fr = new FileReader(filePath);
 			BufferedReader br = new BufferedReader(fr);
@@ -16,11 +16,15 @@ public class FileReaderExample {
 			for (int i = 0; i < linesToShow; i++) {
 				if ((line = br.readLine()) != null) {
 					System.out.println(line);
-				} else {
+				}
+
+				else {
 					break;
 				}
+
+				System.out.println(i);
 			}
-			String lastLine = null;
+			String lastLine = null;// 100th
 			while ((line = br.readLine()) != null) {
 				lastLine = line;
 			}
