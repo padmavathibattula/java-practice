@@ -10,47 +10,44 @@ import java.util.Scanner;
 
 public class WordCount {
 	public static void main(String[] args) {
-		Map m1 = new HashMap();
+		Map<String, Integer> wordFreqMap = new HashMap<String, Integer>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("D:\\poem.txt"))) {
-            StringBuilder sb = new StringBuilder();
-            String line = br.readLine();
+		try (BufferedReader br = new BufferedReader(new FileReader("D:\\poem.txt"))) {
+			// StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
 
-            while (line != null) {
-                String[] words = line.split(" ");//those are your words
-                for (int i = 0; i < words.length; i++) {
-                    if (m1.get(words[i]) == null) {
-                        m1.put(words[i], 1);
-                    } else {
-                        int newValue = Integer.valueOf(String.valueOf(m1.get(words[i])));
-                        newValue++;
-                        m1.put(words[i], newValue);
-                    }
-                }
-                sb.append(System.lineSeparator());
-                line = br.readLine();
-            }
-            Scanner sc=new Scanner(System.in);
-            System.out.println("Enter a word:");
-            String word=sc.next();
-            
-            if(!word.isEmpty()) {
-            	int frequency=(int) m1.getOrDefault(word, 0);
-            	System.out.println("Frequency of word:"+word+":" +frequency);
-            }else {
-            	System.out.println("Invalid output");
-            }
-        } catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			while (line != null) {
+				String[] words = line.split("\\s+");// those are your words
+				for (String word : words) {
+					word = word.toLowerCase().replaceAll("[^a-zA-Z]", "");
+					if (!word.isEmpty()) {
+						int count = wordFreqMap.getOrDefault(word, 0) + 1;
+						wordFreqMap.put(word, count);
+
+					}
+				}
+				// sb.append(System.lineSeparator());
+				line = br.readLine();
+			}
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter a word:");
+			String word = sc.next().toLowerCase();
+
+			if (!word.isEmpty()) {
+				int frequency = wordFreqMap.getOrDefault(word, 0);
+				System.out.println("Frequency of word:" + word + ":" + frequency);
+			} else {
+				System.out.println("Invalid output");
+			}
+			sc.close();
+		} catch (FileNotFoundException e) {
+	
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-       
-    }
-		
-	
+
+	}
 
 }
-
