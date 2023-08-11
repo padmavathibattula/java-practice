@@ -10,56 +10,47 @@ import java.util.Scanner;
 
 public class WordCount {
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter a string:");
-		
-		String filePath="D:\\poem.txt";
-		try {
-			BufferedReader reader=new BufferedReader(new FileReader(filePath));
-			Map<String,Integer>frequency=new HashMap<>();
-			String Line=reader.readLine();
-			while(Line!=null){
-				if(!Line.trim().equals(" ")) {
-					String[] words=Line.split(" ");
-					for(String word: words) {
-						if(word==null || word.trim().equals(" ")) {
-							continue;
-						}
-						String proceessed=word.toLowerCase();
-						//proceessed=proceessed.replace(" ", "");
-						if(frequency.containsKey(proceessed)) {
-							frequency.put(proceessed, frequency.get(proceessed)+1);
-						}else {
-							frequency.put(proceessed, 1);
-						}
-						
-					}
-					Line=reader.readLine();
-				}
-				String thenWord=sc.next();
-				
-				thenWord=null;
-				int mostFrequentlyUsed=0;
-				for(String word:frequency.keySet()) {
-					Integer theVal=frequency.get(word);
-					if(theVal>mostFrequentlyUsed) {
-						mostFrequentlyUsed=theVal;
-						thenWord=word;
-					}
-				}
-				System.out.println();
-				System.out.println("the most frequently used word: " +thenWord+ "times"+mostFrequentlyUsed);
-				
-				
-			}
-			
-		} catch (FileNotFoundException e) {
-			
+		Map m1 = new HashMap();
+
+        try (BufferedReader br = new BufferedReader(new FileReader("D:\\poem.txt"))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] words = line.split(" ");//those are your words
+                for (int i = 0; i < words.length; i++) {
+                    if (m1.get(words[i]) == null) {
+                        m1.put(words[i], 1);
+                    } else {
+                        int newValue = Integer.valueOf(String.valueOf(m1.get(words[i])));
+                        newValue++;
+                        m1.put(words[i], newValue);
+                    }
+                }
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Enter a word:");
+            String word=sc.next();
+            
+            if(!word.isEmpty()) {
+            	int frequency=(int) m1.getOrDefault(word, 0);
+            	System.out.println("Frequency of word:"+word+":" +frequency);
+            }else {
+            	System.out.println("Invalid output");
+            }
+        } catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+       
+    }
+		
+	
 
 }
+
