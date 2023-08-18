@@ -8,15 +8,34 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
 
 public class ExcelReader {
 	public static void main(String[] args) {
-		String filePath = "D:\\input.xlsx";
+		String filePath = "D:\\expenses.xlsx";
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a serachText:");
+		String searchText = sc.next();
+		int columnNo = 1;
 		// excelWrite(String filePath, String Date, String category, String
 		// Description,int Amount);
-		// excelWrite(filePath, "2023-07-20", "Books", "Fee", 150);
+		// findRows(String searchText, int columnNo);
+		// deleteRows(String searchText, int columnNo);
+		excelWrite(filePath, "2023-07-20", "tea", "Fee", "$150");
 		readExcel(filePath);
+		deleteRows(filePath, searchText, columnNo);
+		System.out.println("Rows deleted successfully.");
+		List<Row> matchingRows = findRows(filePath, searchText, columnNo);
+
+		System.out.println("Matching rows:");
+		for (Row row : matchingRows) {
+			System.out.println("Row number: " + (row.getRowNum() + 1));
+		}
+		sc.close();
+
 	}
 
 	public static void readExcel(String filePath) {
@@ -29,18 +48,15 @@ public class ExcelReader {
 				while (cellIterator.hasNext()) {
 					Cell cell = cellIterator.next();
 					switch (cell.getCellType()) {
-
 					case Cell.CELL_TYPE_STRING:
-						System.out.print(cell.getStringCellValue() + "\t\t\t");
-
+						System.out.print(cell.getStringCellValue() + " | ");
 						break;
 					case Cell.CELL_TYPE_NUMERIC:
-
 						if (DateUtil.isCellDateFormatted(cell)) {
-							SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-							System.out.print(dateFormat.format(cell.getDateCellValue()) + "\t\t\t");
+							SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+							System.out.print(dateFormat.format(cell.getDateCellValue()) + " | ");
 						} else {
-							System.out.print(cell.getNumericCellValue() + "\t\t\t");
+							System.out.print(cell.getNumericCellValue() + " | ");
 						}
 						break;
 
@@ -54,24 +70,17 @@ public class ExcelReader {
 		}
 	}
 
-	public static void excelWrite(String filePath, String date, String category, String description, int amount) {
-		try (Workbook workbook = new XSSFWorkbook()) { // Create a new Excel workbook
-			Sheet sheet = workbook.createSheet("Sheet1"); // Create a new sheet
-
-			Row headerRow = sheet.createRow(0);
-			headerRow.createCell(0).setCellValue("Date");
-			headerRow.createCell(1).setCellValue("Category");
-			headerRow.createCell(2).setCellValue("Description");
-			headerRow.createCell(3).setCellValue("Amount");
-
-			Row dataRow = sheet.createRow(1);
+	public static void excelWrite(String filePath, String date, String category, String description, String amount) {
+		try (FileInputStream fis = new FileInputStream(new File(filePath)); XSSFWorkbook wb = new XSSFWorkbook(fis)) { // Create a new Excel workbook
+			XSSFSheet sheet = wb.getSheetAt(0); // Create a new sheet
+			Row dataRow = sheet.createRow(sheet.getLastRowNum()+1);
 			dataRow.createCell(0).setCellValue(date);
 			dataRow.createCell(1).setCellValue(category);
 			dataRow.createCell(2).setCellValue(description);
 			dataRow.createCell(3).setCellValue(amount);
 
 			try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
-				workbook.write(fileOut); // Write the workbook content to the file
+				wb.write(fileOut); // Write the workbook content to the file
 			}
 
 			System.out.println("Excel file created successfully.");
@@ -79,5 +88,68 @@ public class ExcelReader {
 			e.printStackTrace();
 		}
 	}
+	
+	public static List<Row> findRows(String filePath, String searchText, int columnNo) {
+        List<Row> matchingRows = new ArrayList<>();
 
+        try (FileInputStream fis = new FileInputStream(new File(filePath));
+             XSSFWorkbook wb = new XSSFWorkbook(fis)) {
+
+            XSSFSheet sheet = wb.getSheetAt(0);
+            Iterator<Row> rowIterator = sheet.iterator();
+
+            while (rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+                Cell cell = row.getCell(columnNo);
+                if (cell != null && cell.getCellType() == Cell.CELL_TYPE_STRING) {
+                    String cellValue = cell.getStringCellValue();
+                    if (cellValue.contains(searchText)) {
+                        matchingRows.add(row);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return matchingRows;
+        
+    }
+	
+	
+	public static void deleteRows(String filePath, String searchText, int columnNo) {
+		try (FileInputStream fis = new FileInputStream(filePath); XSSFWorkbook wb = new XSSFWorkbook(fis)) {
+
+			XSSFSheet sheet = wb.getSheetAt(0);
+			Iterator<Row> rowIterator = sheet.iterator();
+
+			List<Row> rowsToDelete = new ArrayList<>();
+
+			while (rowIterator.hasNext()) {
+				Row row = rowIterator.next();
+				Cell cell = row.getCell(columnNo);
+				if (cell != null && cell.getCellType() == Cell.CELL_TYPE_STRING) {
+					String cellValue = cell.getStringCellValue();
+					if (cellValue.contains(searchText)) {
+						rowsToDelete.add(row);
+					}
+				}
+			}
+
+			for (Row row : rowsToDelete) {
+				sheet.removeRow(row);
+			}
+
+			// Shift rows to remove empty rows after deletion
+			sheet.shiftRows(sheet.getLastRowNum() + 1, sheet.getLastRowNum() + 1, -1);
+
+			try (FileOutputStream fos = new FileOutputStream(filePath)) {
+				wb.write(fos);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	
 }
