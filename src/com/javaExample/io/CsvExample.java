@@ -1,16 +1,12 @@
 package com.javaExample.io;
 
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvValidationException;
@@ -19,17 +15,15 @@ public class CsvExample {
 	public static void main(String[] args) {
 		String filePath = "C:\\Users\\DELL\\Documents\\input.csv";
 		String name = "Padma";
-        int age = 29;
-        String location = "Hyderabad";
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter a word:");
-        String wordInCount=sc.next();
+		int age = 29;
+		String location = "Hyderabad";
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a word:");
+		String wordInCount = sc.next();
 		System.out.print("Enter actual string: ");
 		String actual = sc.next();
 		System.out.print("Enter the string to replace : ");
 		String replace = sc.next();
-         
-	
 
 		// readCsv(String filePath);
 		// writeCsv(String filePath, String name, int age, String location);
@@ -38,8 +32,8 @@ public class CsvExample {
 		// countLines(String filePath);
 		readCSV(filePath);
 		writeCsv(filePath, name, age, location);
-        int wordCount = countOccurrences(filePath, wordInCount);
-        System.out.println("The word '" + wordInCount + "' appears " + wordCount + " times.");
+		int wordCount = countOccurrences(filePath, wordInCount);
+		System.out.println("The word '" + wordInCount + "' appears " + wordCount + " times.");
 		findAndReplace(actual, replace, filePath);
 		System.out.println("Word replaced successfully.");
 		countLines(filePath);
@@ -68,15 +62,19 @@ public class CsvExample {
 		}
 
 	}
-	
+
 	private static void writeCsv(String filePath, String name, int age, String location) {
-        try (CSVWriter writer = new CSVWriter(new FileWriter(filePath, true))) {
-            String[] record = {name, String.valueOf(age), location};
-            writer.writeNext(record);
-        } catch (IOException e) {
+		try (CSVWriter writer = new CSVWriter(new FileWriter(filePath, true))) {
+			String[] record = { name, String.valueOf(age), location };
+			String[] record2 = { name, String.valueOf(age), location };
+		List<String[]> records= new ArrayList<>();
+		  records.add(record);
+		  records.add(record2);
+			writer.writeAll(records);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    }
+	}
 
 	private static int countOccurrences(String filePath, String wordToCount) {
 		int totalCount = 0;
@@ -101,17 +99,16 @@ public class CsvExample {
 		return totalCount;
 	}
 
-	private static int countOccurrencesInString(String text, String word) {
+	private static int countOccurrencesInString(String cell, String word) {// cell=padmavathi-padmavathi,word=padmavathi
 		int count = 0;
-		int index = text.indexOf(word);
+		int index = cell.indexOf(word);
 		while (index != -1) {
 			count++;
-			index = text.indexOf(word, index + 1);
+			index = cell.indexOf(word, index + 1);
 		}
 		return count;
 	}
-	
-	
+
 	private static void findAndReplace(String filePath, String actualWord, String replaceWord) {
 		List<String[]> newLines = new ArrayList<>();
 
@@ -137,13 +134,12 @@ public class CsvExample {
 		}
 
 		try (CSVWriter writer = new CSVWriter(new FileWriter(filePath))) {
-			for (String[] line : newLines) {
-				writer.writeNext(line);
-			}
+				writer.writeAll(newLines);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	private static void countLines(String filePath) {
 		int lineCount = 0;
 		try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
@@ -162,7 +158,4 @@ public class CsvExample {
 		System.out.println("Line count: " + lineCount);
 	}
 
-	
-
-	
 }

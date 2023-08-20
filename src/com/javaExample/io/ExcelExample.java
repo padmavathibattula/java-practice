@@ -13,27 +13,31 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-public class ExcelReader {
+public class ExcelExample {
 	public static void main(String[] args) {
 		String filePath = "D:\\expenses.xlsx";
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a serachText:");
 		String searchText = sc.next();
 		int columnNo = 1;
-		// excelWrite(String filePath, String Date, String category, String
-		// Description,int Amount);
-		// findRows(String searchText, int columnNo);
-		// deleteRows(String searchText, int columnNo);
+		
+		// write to excel file
 		excelWrite(filePath, "2023-07-20", "tea", "Fee", "$150");
+		
+		// read from an excel file
 		readExcel(filePath);
-		deleteRows(filePath, searchText, columnNo);
-		System.out.println("Rows deleted successfully.");
+		
+		// finding rows from given search text
 		List<Row> matchingRows = findRows(filePath, searchText, columnNo);
-
 		System.out.println("Matching rows:");
 		for (Row row : matchingRows) {
 			System.out.println("Row number: " + (row.getRowNum() + 1));
 		}
+		
+		// delete rows from given search text
+		deleteRows(filePath, searchText, columnNo);
+		System.out.println("Rows deleted successfully.");
+		
 		sc.close();
 
 	}

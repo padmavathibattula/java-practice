@@ -183,7 +183,7 @@ public class DescendingFrequencyWordCounter {
 	        return reversed.reverse().toString();
 	    }
 	    
-	    private static void reverseFileLines(String filePath, String outputFilePath) {
+		private static void reverseFileLines(String filePath, String outputFilePath) {
 			List<String> lines = new ArrayList<>();
 			try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 				String line;
@@ -197,9 +197,9 @@ public class DescendingFrequencyWordCounter {
 
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			} 
 			Collections.reverse(lines);
 			try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) {
 				for (String line : lines) {
@@ -210,7 +210,6 @@ public class DescendingFrequencyWordCounter {
 				e.printStackTrace();
 			}
 
-		}
-	    
+		}	    
 
 }
