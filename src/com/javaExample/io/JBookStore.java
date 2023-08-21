@@ -2,12 +2,12 @@ package com.javaExample.io;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookStoreExample {
-	 List<SerialazationExample> books = new ArrayList<>();
-	   public List<SerialazationExample> getBooks() {
+public class JBookStore {
+	 List<JBook> books = new ArrayList<>();
+	   public List<JBook> getBooks() {
 	      return books;
 	   }
-	   public void addBook(SerialazationExample book) {
+	   public void addBook(JBook book) {
 		   books.add(book);
 	   }
 

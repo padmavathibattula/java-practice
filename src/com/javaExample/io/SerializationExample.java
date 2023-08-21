@@ -10,7 +10,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class JsonFileWriteTest {
+public class SerializationExample {
 	public static void main(String[] args) {
 		try (FileReader reader = new FileReader("C:\\Users\\DELL\\Documents\\book-store.json")) {
 			JsonParser parser = new JsonParser();

@@ -5,17 +5,17 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-public class AddBook {
+public class MarshalExample {
 	 public static void main(String[] args) {
 	        try {
 	        	//java object -> xml (marshalling) ->add  a third book ->write operation
 	            // Unmarshal existing XML content
-	            JAXBContext context = JAXBContext.newInstance(BookStore.class);
+	            JAXBContext context = JAXBContext.newInstance(XBookStore.class);
 	            Unmarshaller unmarshaller = context.createUnmarshaller();
-	            BookStore bookstore = (BookStore) unmarshaller.unmarshal(new FileReader("C:\\Users\\DELL\\Documents\\book-store.xml"));
+	            XBookStore bookstore = (XBookStore) unmarshaller.unmarshal(new FileReader("C:\\Users\\DELL\\Documents\\book-store.xml"));
 
 	            // Create a new book
-	            MarshallingExample newBook = new MarshallingExample();
+	            XBook newBook = new XBook();
 	            newBook.setTitle("Advanced XML Programming");
 	            newBook.setAuthor("David Johnson");
 	            newBook.setPrice(49.95);

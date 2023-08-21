@@ -2,7 +2,7 @@ package com.javaExample.io;
 
 import com.google.gson.annotations.Expose;
 
-public class SerialazationExample {
+public class JBook {
 	@Expose
 	private String title;
     private String author;

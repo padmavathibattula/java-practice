@@ -10,11 +10,11 @@ public class UnmarshalExample {
         try {
         	//xml -> java object (unmarshalling) -> read operation
             File file = new File("C:\\Users\\DELL\\Documents\\book-store.xml");
-            JAXBContext jaxbContext = JAXBContext.newInstance(BookStore.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(XBookStore.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            BookStore bookstore = (BookStore) jaxbUnmarshaller.unmarshal(file);
+            XBookStore bookstore = (XBookStore) jaxbUnmarshaller.unmarshal(file);
             // Now you can access the Java objects
-            for (MarshallingExample book : bookstore.getBooks()) {
+            for (XBook book : bookstore.getBooks()) {
                 System.out.println("Title: " + book.getTitle());
                 System.out.println("Author: " + book.getAuthor());
                 System.out.println("Price: " + book.getPrice());

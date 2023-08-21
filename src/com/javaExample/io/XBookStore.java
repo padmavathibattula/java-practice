@@ -5,17 +5,16 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "bookstore")
-
-public class BookStore {
-	private List<MarshallingExample> books = new ArrayList<>();
+public class XBookStore {
+	private List<XBook> xbooks = new ArrayList<>();
 
     @XmlElement(name = "book")
-    public List<MarshallingExample> getBooks() {
-        return books;
+    public List<XBook> getBooks() {
+        return xbooks;
     }
 
-    public void addBook(MarshallingExample book) {
-        books.add(book);
+    public void addBook(XBook xbook) {
+        xbooks.add(xbook);
     }
 
 }

@@ -6,13 +6,13 @@ package com.javaExample.io;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "book")
-public class MarshallingExample {
+public class XBook {
 	// Create Java classes to represent the structure of the XML elements.
-	 private String title;
+	    private String title;
 	    private String author;
 	    private double price;
 
-	    @XmlElement
+	    @XmlElement(name="title")
 	    public String getTitle() {
 	        return title;
 	    }
@@ -21,7 +21,7 @@ public class MarshallingExample {
 	        this.title = title;
 	    }
 
-	    @XmlElement
+	    @XmlElement(name="author")
 	    public String getAuthor() {
 	        return author;
 	    }
@@ -30,7 +30,7 @@ public class MarshallingExample {
 	        this.author = author;
 	    }
 
-	    @XmlElement
+	    @XmlElement(name="price")
 	    public double getPrice() {
 	        return price;
 	    }
