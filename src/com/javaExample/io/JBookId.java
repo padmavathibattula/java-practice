@@ -46,6 +46,16 @@ public class JBookId {
 	public void setAvailability(JAvaliability availability) {
 		this.availability = availability;
 	}
+	public void setBookId(String string) {
+	}
+	@Override
+	public String toString() {
+		return "JBookId [id=" + id + ", title=" + title + ", author=" + author + ", publicationYear=" + publicationYear
+				+ ", genre=" + genre + ", availability=" + availability + ", getId()=" + getId() + ", getTitle()="
+				+ getTitle() + ", getAuthor()=" + getAuthor() + ", getPublicationYear()=" + getPublicationYear()
+				+ ", getGenre()=" + getGenre() + ", getAvailability()=" + getAvailability() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
     
 
 }

@@ -27,8 +27,11 @@ public class JBook {
 	}
 	@Override
 	public String toString() {
-		return "SerialazationExample [title=" + title + ", author=" + author + ", price=" + price + "]";
+		return "JBook [title=" + title + ", author=" + author + ", price=" + price + ", getTitle()=" + getTitle()
+				+ ", getAuthor()=" + getAuthor() + ", getPrice()=" + getPrice() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
     
 
 

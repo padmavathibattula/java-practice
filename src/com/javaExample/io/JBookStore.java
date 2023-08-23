@@ -1,14 +1,27 @@
 package com.javaExample.io;
-import java.util.ArrayList;
-import java.util.List;
 
 public class JBookStore {
-	 List<JBook> books = new ArrayList<>();
-	   public List<JBook> getBooks() {
-	      return books;
-	   }
-	   public void addBook(JBook book) {
-		   books.add(book);
-	   }
+	private JBooks bookstore;
+
+	public JBooks getBookstore() {
+		return bookstore;
+	}
+
+	public void setBookstore(JBooks bookstore) {
+		this.bookstore = bookstore;
+	}
+
+	@Override
+	public String toString() {
+		return "JBookStore [bookstore=" + bookstore + ", getBookstore()=" + getBookstore() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+
+	public void addBook(JBook newBook) {
+		this.bookstore=bookstore;
+
+	}
+
+
 
 }

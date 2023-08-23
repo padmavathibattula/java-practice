@@ -10,7 +10,7 @@ public class JAvaliability {
 	public String getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(String status, String string) {
 		this.status = status;
 	}
 	public String getDueDate() {
@@ -22,8 +22,25 @@ public class JAvaliability {
 	public String getBorrower() {
 		return borrower;
 	}
+	public void setBorrower(String borrower, String string) {
+		this.borrower = borrower;
+	}
+	public void setDuedate(String string, String string2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public void setBorrower(String borrower) {
 		this.borrower = borrower;
 	}
+	@Override
+	public String toString() {
+		return "JAvaliability [status=" + status + ", dueDate=" + dueDate + ", borrower=" + borrower + ", getStatus()="
+				+ getStatus() + ", getDueDate()=" + getDueDate() + ", getBorrower()=" + getBorrower() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
     
 }

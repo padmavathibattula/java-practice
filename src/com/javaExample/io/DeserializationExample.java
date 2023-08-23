@@ -1,5 +1,6 @@
 package com.javaExample.io;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -11,19 +12,28 @@ public class DeserializationExample {
      
 	 public static void main(String[] args) {
 
-			// pretty print 
-	        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		      //Gson gson = new Gson();
 
-	        try (Reader reader = new FileReader("C:\\Users\\DELL\\Documents\\book-store.json")) {
-	        	JsonElement json = gson.fromJson(reader, JsonElement.class);
+			try (Reader reader = new FileReader("C:\\Users\\DELL\\Documents\\book-store.json")) {
+				BufferedReader br = new BufferedReader(reader);
+				StringBuilder sb = new StringBuilder();
+				String line = "";
+				while ((line = br.readLine()) != null) {
+					sb.append(line);
+				}
+				//step2:convert json into a string
+				String json = sb.toString();
+				//System.out.println(json);
 
-	            String jsonInString = gson.toJson(json);
-	            System.out.println(jsonInString);
-	        	
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-
-}
+				Gson gson = new GsonBuilder().setPrettyPrinting().create();
+				//step3:convert json string to java jbookstore object(deserilization)
+				JBookStore obj=gson.fromJson(json,JBookStore.class);
+				//System.out.println(obj.getBookstore());
+				//step4:print each jbook object
+				for(JBook book:obj.getBookstore().getBooks()) {
+					System.out.println(book);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 }

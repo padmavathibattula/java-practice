@@ -5,47 +5,50 @@ import com.google.gson.*;
 import java.io.*;
 
 public class JSerializationExample {
-	 public static void main(String[] args) {
-	        String filePath = "C:\\Users\\DELL\\Documents\\library.json"; // Replace with your JSON file path
+	public static void main(String[] args) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String filePath = "C:\\Users\\DELL\\Documents\\library.json";
+		String outPut = "C:\\Users\\DELL\\Documents\\output.json";
 
-	        StringBuilder jsonString = new StringBuilder();
-	        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-	            String line;
-	            while ((line = reader.readLine()) != null) {
-	                jsonString.append(line);
-	            }
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	            return;
-	        }
+		StringBuilder jsonString = new StringBuilder();
+		try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+			String line;
+			while ((line = reader.readLine()) != null) {
+				jsonString.append(line);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+		JLibrary obj = gson.fromJson(jsonString.toString(), JLibrary.class);
 
-	        JsonParser parser = new JsonParser();
-	        JsonObject rootObject = parser.parse(jsonString.toString()).getAsJsonObject();
+		// Create a new JBookId instance and set its properties
+		JBookId newBook = new JBookId();
+		newBook.setId("004");
+		newBook.setTitle("The Great Gatsby");
+		newBook.setAuthor("Harper");
+		newBook.setPublicationYear(2023);
+		newBook.setGenre("Fiction");
 
-	        JsonObject newBook = new JsonObject();
-	        newBook.addProperty("id", "004");
-	        newBook.addProperty("title", "The Great Gatsby");
-	        newBook.addProperty("author", "Harper");
-	        newBook.addProperty("publication_year", 2023);
-	        newBook.addProperty("genre", "Fiction");
+		// Create and set the availability for the new book
+		JAvaliability availability = new JAvaliability();
+		availability.setStatus("checked_out");
+		availability.setDueDate("2023-08-25");
+		availability.setBorrower("John");
+		newBook.setAvailability(availability);
 
-	        JsonObject availability = new JsonObject();
-	        availability.addProperty("status", "checked_out");
-	        availability.addProperty("due_date", "2023-08-25");
-	        availability.addProperty("borrower", "John");
-	        newBook.add("availability", availability);
+		// Add the new book to the existing library's book list
+		obj.getLibrary().add(newBook);
 
-	        JsonArray libraryArray = rootObject.getAsJsonArray("library");
-	        libraryArray.add(newBook);
+		// Serialize the updated library to JSON
+		String newJson = gson.toJson(obj);
 
-	        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	        String updatedJsonString = gson.toJson(rootObject);
+		try (FileWriter writer = new FileWriter(outPut)) {
+			writer.write(newJson);
+			System.out.println("New book added to JSON file.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-	        try (FileWriter writer = new FileWriter(filePath)) {
-	            writer.write(updatedJsonString);
-	            System.out.println("New book added to JSON file.");
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	    }
-   }
+	}
+}
