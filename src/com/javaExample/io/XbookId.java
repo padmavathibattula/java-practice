@@ -11,10 +11,11 @@ public class XbookId {
 	private String author;
 	private String publicationYear;
 	private String genre;
-	private Availability availability;
+	private XAvailability availability;
+	
 
 	public XbookId(String id, String title, String author, String publicationYear, String genre,
-			Availability availability) {
+			XAvailability availability) {
 
 		this.id = id;
 		this.title = title;
@@ -24,6 +25,7 @@ public class XbookId {
 		this.availability = availability;
 	}
 	public XbookId() {
+		this.availability = new XAvailability(); // Initialize Availability object
 	}
 	@XmlAttribute(name = "id")
 	public String getId() {
@@ -66,12 +68,14 @@ public class XbookId {
 		this.genre = genre;
 	}
 	@XmlElement(name="availability")
-	public Availability getAvailability() {
+	public XAvailability getAvailability() {
 		return availability;
 	}
 
-	public void setAvailability(Availability availability) {
+	public void setAvailability(XAvailability availability) {
 		this.availability = availability;
 	}
+	
+	
 
 }

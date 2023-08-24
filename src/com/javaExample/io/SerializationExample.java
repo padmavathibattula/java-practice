@@ -37,7 +37,7 @@ public class SerializationExample {
 
 			// Serialize the modified JBookStore object to JSON string
 			String newJson = gson.toJson(obj);
-			try (FileWriter writer = new FileWriter("C:\\Users\\DELL\\Documents\\.json")) {
+			try (FileWriter writer = new FileWriter("C:\\Users\\DELL\\Documents\\output.json")) {
 				
 				writer.write(newJson);
 				System.out.println("New book added and json updated.");

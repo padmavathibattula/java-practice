@@ -1,24 +1,27 @@
 package com.javaExample.io;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="availability")
-public class Availability {
+@XmlRootElement(name="availability ")
+public class XAvailability {
 	private String status;
     private String dueDate;
     private String borrower;
-	public Availability(String status, String dueDate, String borrower) {
+    
+	public XAvailability(String status, String dueDate, String borrower) {
 		this.status = status;
 		this.dueDate = dueDate;
 		this.borrower = borrower;
 	}
-	public Availability() {
+	public XAvailability() {
 	}
-	@XmlElement(name="status")
-	public String getStatus() {
-		return status;
-	}
+	@XmlAttribute
+    public String getStatus() {
+        return status;
+    }
+
 	public void setStatus(String status) {
 		this.status = status;
 	}

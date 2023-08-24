@@ -16,7 +16,7 @@ public class LibraryMarshalExample {
 
 	            File xmlFile = new File("C:\\Users\\DELL\\Documents\\library.xml");
 	            Library library = (Library) unmarshaller.unmarshal(xmlFile);
-				Availability availability = new Availability();
+				XAvailability availability = new XAvailability();
 	            availability.setStatus("checked_in");
 	            availability.setDueDate("2023-09-25");
 	            availability.setBorrower("John");
