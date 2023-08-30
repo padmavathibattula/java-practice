@@ -1,0 +1,28 @@
+package com.example.io;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.File;
+
+
+public class UnmarshalExample {
+	public static void main(String[] args) {
+        try {
+        	//xml -> java object (unmarshalling) -> read operation
+            File file = new File("C:\\Users\\DELL\\Documents\\book-store.xml");
+            JAXBContext jaxbContext = JAXBContext.newInstance(XBookStore.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            XBookStore bookstore = (XBookStore) jaxbUnmarshaller.unmarshal(file);
+            // Now you can access the Java objects
+            for (XBook book : bookstore.getBooks()) {
+                System.out.println("Title: " + book.getTitle());
+                System.out.println("Author: " + book.getAuthor());
+                System.out.println("Price: " + book.getPrice());
+                System.out.println();
+            }
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
