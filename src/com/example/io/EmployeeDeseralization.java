@@ -21,7 +21,7 @@ public class EmployeeDeseralization {
             Gson gson = new Gson();
 
             // Deserialize JSON data into an Employee object
-            Employee emp = gson.fromJson(json, Employee.class);
+            Organization emp = gson.fromJson(json, Organization.class);
 
             // Iterate over the list of employees and print their details
             for (EmployeeDetails newEmp : emp.getEmployee()) {

@@ -28,7 +28,7 @@ public class ConvertingJsonDataToDataBaseTable {
 
             // Create the Gson object and parse the JSON
             Gson gson = new Gson();
-            Employee emp = gson.fromJson(json, Employee.class);
+            Organization emp = gson.fromJson(json, Organization.class);
 
             Class.forName("org.postgresql.Driver");
             try( Connection connection = DriverManager.getConnection(url, userName, passWord);) {
@@ -42,7 +42,7 @@ public class ConvertingJsonDataToDataBaseTable {
                 for (EmployeeDetails employee : emp.getEmployee()) {
                 	System.out.println(employee);
                     preparedStatement.setInt(1, employee.getId());
-                    preparedStatement.setString(2, employee.getFirstName());
+                   preparedStatement.setString(2, employee.getFirstName());
                     preparedStatement.setString(3, employee.getLastName());
                     preparedStatement.setString(4, employee.getPosition());
                     preparedStatement.setString(5, employee.getDepartment());

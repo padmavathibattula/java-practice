@@ -3,13 +3,17 @@ package com.example.io;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Employee {
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name = "employees")
+public class Organization {
+	
     private List<EmployeeDetails> employees;
 
-    public Employee() {
+    public Organization() {
         employees = new ArrayList<>();
     }
-
+    @XmlElement(name = "employee")
     public List<EmployeeDetails> getEmployee() {
         return employees;
     }
