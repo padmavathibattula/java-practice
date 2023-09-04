@@ -22,10 +22,10 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 
-public class ConvertXmlJsonGeneration {
+public class DbToXmlJsonConversion {
 	private Connection connection;
 
-	public  ConvertXmlJsonGeneration(Connection connection) {
+	public  DbToXmlJsonConversion(Connection connection) {
 		this.connection = connection;
 	}
 
@@ -144,7 +144,7 @@ public class ConvertXmlJsonGeneration {
 		String csvFile = "C:\\Users\\DELL\\Documents\\library.csv";
 
 		try (Connection connection = getConnection()) {
-			ConvertXmlJsonGeneration dbUtility = new ConvertXmlJsonGeneration(connection);
+			DbToXmlJsonConversion dbUtility = new DbToXmlJsonConversion(connection);
 
 			// Convert CSV to DB (if needed)
 			dbUtility.convertCsvToDb(csvFile);
