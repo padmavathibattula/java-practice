@@ -8,17 +8,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "employees")
 public class Organization {
 	
-    private List<EmployeeDetails> employees;
+    private List<XEmployeeDetails> employees;
 
     public Organization() {
         employees = new ArrayList<>();
     }
     @XmlElement(name = "employee")
-    public List<EmployeeDetails> getEmployee() {
+    public List<XEmployeeDetails> getEmployee() {
         return employees;
     }
 
-    public void setEmployee(List<EmployeeDetails> employee) {
+    public void setEmployee(List<XEmployeeDetails> employee) {
         this.employees = employee;
     }
 }

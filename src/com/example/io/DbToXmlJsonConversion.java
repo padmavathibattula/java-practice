@@ -156,7 +156,7 @@ public class DbToXmlJsonConversion {
 			dbUtility.convertListToJson(bookList, "C:\\\\Users\\\\DELL\\\\Documents\\\\library.json");
 
 			// Convert to XML
-			dbUtility.convertListToXml(bookList, "C:\\\\Users\\\\DELL\\\\Documents\\\\library.csv.xml");
+			dbUtility.convertListToXml(bookList, "C:\\\\Users\\\\DELL\\\\Documents\\\\library.xml");
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}

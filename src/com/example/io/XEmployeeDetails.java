@@ -1,38 +1,36 @@
 package com.example.io;
+import java.util.Objects;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="employee")
 public class XEmployeeDetails {
-	private int id;
+	private int employeeId;
 	private String firstName;
 	private String lastName;
-	private String email;
-	private String position;
 	private String department;
 	private int salary;
 	
-	public XEmployeeDetails(int id, String firstName, String lastName, String position, String department, int salary,String email) {
+	public XEmployeeDetails(int employeeId, String firstName, String lastName, String department, int salary) {
 		
-		this.id = id;
+		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.position = position;
 		this.department = department;
 		this.salary = salary;
-		this.email=email;
 	}
 	public XEmployeeDetails() {
 		
 	}
-	@XmlElement(name="id")
-	public int getId() {
-		return id;
+	@XmlElement(name="EmployeeID")
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
-	@XmlElement(name="firstName")
+	@XmlElement(name="FirstName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -40,7 +38,7 @@ public class XEmployeeDetails {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	@XmlElement(name="lastName")
+	@XmlElement(name="LastName")
 	public String getLastName() {
 		return lastName;
 	}
@@ -48,15 +46,8 @@ public class XEmployeeDetails {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	@XmlElement(name="position")
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
-	@XmlElement(name="department")
+	
+	@XmlElement(name="Department")
 	public String getDepartment() {
 		return department;
 	}
@@ -64,7 +55,7 @@ public class XEmployeeDetails {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	@XmlElement(name="salary")
+	@XmlElement(name="Salary")
 
 	public int getSalary() {
 		return salary;
@@ -74,26 +65,32 @@ public class XEmployeeDetails {
 		this.salary = salary;
 	}
 	
-	@XmlElement(name="email")
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 	@Override
 	public String toString() {
-		return "XEmployeeDetails [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", position=" + position + ", department=" + department + ", salary=" + salary + "]";
+		return "XEmployeeDetails [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName + ", department=" + department + ", salary=" + salary + "]";
 	}
-	public void getEmail(String string) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	public Object getEmployee() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o) return true;
+	    if (o == null || getClass() != o.getClass()) return false;
+	    XEmployeeDetails that = (XEmployeeDetails) o;
+	    return employeeId == that.employeeId;
+	}
+
+	@Override
+	public int hashCode() {
+	    return Objects.hash(employeeId);
+	}
+
+	
 	
 	
 

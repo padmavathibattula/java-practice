@@ -2,6 +2,7 @@ package com.example.io;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,7 +30,7 @@ public class XEmployee {
 		public void setEmployees(List<XEmployeeDetails> employees) {
 			this.employees = employees;
 		}
-		public int getId() {
+		public int getEmployeeId() {
 			// TODO Auto-generated method stub
 			return 0;
 		}
@@ -41,10 +42,7 @@ public class XEmployee {
 			// TODO Auto-generated method stub
 			return null;
 		}
-		public String getPosition() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+		
 		public double getSalary() {
 			// TODO Auto-generated method stub
 			return 0;
@@ -53,9 +51,23 @@ public class XEmployee {
 			// TODO Auto-generated method stub
 			return null;
 		}
-		public String getEmail() {
-			// TODO Auto-generated method stub
-			return null;
+		@Override
+		public boolean equals(Object o) {
+		    if (this == o) return true;
+		    if (o == null || getClass() != o.getClass()) return false;
+		    XEmployee employee = (XEmployee) o;
+		    return employees == employee.employees &&
+		            Double.compare(employee.getSalary(), getSalary()) == 0 &&
+		            Objects.equals(getFirstName(), employee.getFirstName()) &&
+		            Objects.equals(getLastName(), employee.getLastName()) &&
+		            Objects.equals(getDepartment(), employee.getDepartment());
 		}
+
+		@Override
+		public int hashCode() {
+		    return Objects.hash(employees, getFirstName(), getLastName(), getDepartment(), getSalary());
+		}
+
+		
 	    
 }
